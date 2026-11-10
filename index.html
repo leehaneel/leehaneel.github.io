@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LEE HAN · Compositor Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -323,7 +324,7 @@ body.innerHTML='';
 var t=document.createElement('h3');t.textContent=card?card.querySelector('h3').textContent:'';t.style.margin='0 0 10px';
 var v=document.createElement('div');v.className='vid';
 var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1';
-f.title=t.textContent+' video';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.setAttribute('allowfullscreen','');
+f.title=t.textContent+' video';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.referrerPolicy='strict-origin-when-cross-origin';f.setAttribute('allowfullscreen','');
 v.appendChild(f);
 var p=document.createElement('p');p.className='vfb';
 var a=document.createElement('a');a.href='https://youtu.be/'+id;a.target='_blank';a.rel='noopener';a.textContent='YouTubeで開く';
