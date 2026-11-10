@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LEE HAN · Compositor Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;500&family=Montserrat:wght@500;600&display=swap">
 <style>
 :root{--bg:#fdf8f6;--fg:#2a2230;--mute:#574e62;--line:#eadde2;--accent:#c2366c;--panel:#f6ebef;--ga:#ff7ab8;--gb:#5fd0ff;--gc:#ffc46b;--gm:26%;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -18,16 +18,22 @@ body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.85 "Noto Sans
 .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);background:color-mix(in srgb,var(--bg) 78%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:56px;gap:12px}
-header strong{font-weight:500;white-space:nowrap}
+header strong,.home{font-weight:500;white-space:nowrap}
+.home{color:var(--fg);text-decoration:none;transition:color .2s}
+.home:hover,.home:focus-visible{color:var(--accent)}
 nav{display:flex;align-items:center;overflow-x:auto}
 nav a{color:var(--mute);text-decoration:none;margin-left:20px;font-size:15px;white-space:nowrap}
 nav a:hover,nav a:focus-visible{color:var(--accent)}
 button{font:inherit;cursor:pointer}
 .theme{background:none;border:1px solid var(--line);color:var(--fg);border-radius:20px;padding:2px 12px;font-size:13px;margin-left:20px;white-space:nowrap}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-h1,h2{font-family:"Noto Serif JP",Georgia,serif;line-height:1.4;margin:0;text-wrap:balance}
-h1{font-size:clamp(26px,4.6vw,44px);margin:36px 0 14px;max-width:18em}
+h1,h2{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;line-height:1.3;margin:0;text-wrap:balance}
+h2{font-weight:600;letter-spacing:.01em}
+.work h3,.bd h3,.abg h3{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif}
+h1{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;font-weight:600;letter-spacing:.02em;font-size:clamp(26px,3.8vw,36px);line-height:1.25;margin:36px 0 14px;max-width:18em}
 h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
+.ttl{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.jp{font-family:"Noto Sans JP",system-ui,sans-serif;font-size:.47em;font-weight:400;color:color-mix(in srgb,var(--mute) 78%,var(--fg));margin-left:14px;letter-spacing:.06em;white-space:nowrap}
 .sub{color:var(--accent);font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px}
 .lead{color:var(--mute);color:color-mix(in srgb,var(--fg) 82%,var(--bg));max-width:34em;margin:0 0 28px}
 .stage{--p:50%;position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:4px;border:1px solid var(--line);user-select:none}
@@ -46,7 +52,8 @@ h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
 .raw .fig i{background:#9ba5a0}
 .tag{position:absolute;top:12px;font-size:12px;padding:2px 10px;border-radius:12px;background:#000a;color:#fff}
 .raw .tag{left:12px}.comp .tag{right:12px}
-.bar{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;box-shadow:0 0 8px #0008;pointer-events:none}
+.bar{position:absolute;top:0;bottom:0;left:clamp(16px,var(--p),calc(100% - 16px));width:2px;background:#fff;box-shadow:0 0 8px #0008;pointer-events:none}
+.bar::after{content:"\2039 \203A";position:absolute;top:50%;left:1px;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:#fff;color:#2a2230;font-size:14px;line-height:30px;text-align:center;box-shadow:0 0 8px #0006}
 .stage input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
 .reel{display:block;position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:4px;border:1px solid var(--line);text-decoration:none;color:#fff;background:linear-gradient(135deg,#1d2f3a,#0c161d 60%,#3a2a38)}
 .reel::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-35%,-50%);border-left:44px solid #fff;border-top:26px solid transparent;border-bottom:26px solid transparent;opacity:.9}
@@ -79,7 +86,11 @@ section{padding:96px 0 0}
 .work.wide,.work.m{padding:14px;background:none;border:1px solid var(--line)}
 .work.wide h3,.work.wide p,.work.m h3,.work.m p{margin-left:2px;margin-right:2px}
 .work.wide h3,.work.m h3{margin-top:14px}
-.mg{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.mg{grid-template-columns:1fr;gap:32px}
+.hs-nav{display:flex;gap:8px;justify-content:flex-end;margin:-8px 0 6px}
+.hs-b{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--fg);font-size:22px;line-height:1}
+.hs-b:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.hs-b:disabled{opacity:.35;cursor:default}
 .zoom{position:absolute;right:8px;bottom:8px;z-index:2;background:#000a;color:#fff;border:0;border-radius:12px;padding:2px 12px;font-size:12px}
 .zoom:hover{background:var(--accent);color:#000}
 dialog{width:min(94vw,1100px);max-width:none;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:16px}
@@ -91,6 +102,17 @@ dialog::backdrop{background:#000c}
 .solid .obj{background:radial-gradient(circle at 35% 30%,#f3c98a,#b5651d 55%,#3b2418)}
 .wire .obj{border:1px solid #6fd3c4;background:repeating-linear-gradient(0deg,#6fd3c4 0 1px,transparent 1px 16px),repeating-linear-gradient(90deg,#6fd3c4 0 1px,transparent 1px 16px)}
 .wire .tag{left:12px}.solid .tag{right:12px}
+.mpair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:560px){.mpair{grid-template-columns:1fr}}
+.mz{display:block;width:100%;padding:0;font:inherit;color:inherit;background:none;cursor:zoom-in}
+.mz .solid .tag{left:12px;right:auto}
+.mzt{position:absolute;right:10px;bottom:10px;z-index:2;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);color:#1e1a24;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 2px 10px rgba(0,0,0,.25);pointer-events:none;transition:transform .2s ease,background .2s ease}
+.mz:hover .mzt,.mz:focus-visible .mzt{transform:scale(1.1);background:#fff}
+.mv{position:relative;aspect-ratio:16/9;width:min(100%,calc(72vh*16/9));margin:0 auto;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.mv .scene{--p:100%}
+.mtabs{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.mtab{border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:20px;padding:6px 18px;font-size:14px}
+.mtab[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:#fff}
 .draw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
 .draw button{display:block;width:100%;aspect-ratio:1;border:0;padding:0;border-radius:4px;cursor:zoom-in;background:linear-gradient(135deg,var(--line),var(--panel))}
 .draw button:hover{outline:2px solid var(--accent)}
@@ -115,8 +137,9 @@ footer .wrap{display:flex;flex-direction:column;align-items:flex-start}
 :root{--cb:color-mix(in srgb,var(--accent) 38%,var(--bg))}
 .top{display:block;margin-bottom:8px}
 .hero{display:block}
-.hero-t{margin-bottom:28px}
-.hero .lead{margin-bottom:0}
+.hero-t{margin-bottom:56px}
+.shd{margin-bottom:16px}
+.hero .lead{margin:10px 0 0}
 .hero-c{text-align:center}
 .hero-c svg{width:100%;height:auto;display:block;overflow:visible}
 .chint{margin:4px 0 0;font-size:12px;color:var(--mute);transition:opacity .3s}
@@ -126,11 +149,61 @@ footer .wrap{display:flex;flex-direction:column;align-items:flex-start}
 .abg p{margin:0;color:var(--mute);font-size:16px}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .chips li{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:3px 14px;font-size:15px}
+.abg .sw{grid-column:1/-1}
+.edu{list-style:none;margin:0;padding:0}
+.edu li{display:grid;grid-template-columns:170px 1fr;gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.edu .ey{font-family:"Montserrat","Noto Sans JP",sans-serif;font-weight:500;color:var(--accent);white-space:nowrap}
+@media(max-width:560px){.edu li{grid-template-columns:1fr;gap:2px}}
+.gauges{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 48px}
+.gauges li{display:grid;grid-template-columns:112px 1fr 52px;align-items:center;gap:12px}
+.lv{font-size:13px;color:var(--mute);text-align:right;white-space:nowrap}
+.gn{font-size:15px}
+.bar{display:block;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.fill{display:block;height:100%;width:var(--v);border-radius:4px;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#ffc46b));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv:not(.in) .fill{width:0}
+.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.tools li{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.tic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+.ttx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ttx b{font-family:"Montserrat","Noto Sans JP",sans-serif;font-weight:600;font-size:16px}
+.ttx span{color:var(--mute);font-size:14px;line-height:1.6}
+.mc{position:relative;width:min(100%,460px);aspect-ratio:91/55;align-self:center;display:flex;flex-direction:column;justify-content:space-between;padding:28px 30px;border-radius:6px;background:#fff;color:#2a2230;border:1px solid #ece8ea;box-shadow:0 10px 28px rgba(40,30,40,.08);overflow:visible;transition:transform .35s ease,box-shadow .35s ease}
+.mc-top{display:flex;justify-content:space-between;align-items:center}
+.mc-role{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#5a525f}
+.mc-name b{display:block;font-family:"Montserrat",sans-serif;font-weight:600;font-size:20px;letter-spacing:.08em;line-height:1.2}
+.mc-name span{font-size:12px;color:#4e4752;letter-spacing:.1em}
+.mc-info{display:flex;flex-direction:column;gap:4px;position:relative;z-index:1}
+.mc-row{display:flex;gap:12px;align-items:baseline;text-decoration:none;color:#3a333d;font-size:13px;min-width:0}
+.mc-k{flex:none;display:grid;place-items:center;width:18px;color:#6e6572;transform:translateY(3px)}
+.mc-v{overflow-wrap:anywhere;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.mc-mail{position:relative}
+.mc-tip{position:absolute;left:30px;bottom:calc(100% + 8px);padding:4px 10px;border-radius:6px;background:#2f2a33;color:#fff;font-size:11px;letter-spacing:.04em;white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none}
+.mc-tip::after{content:"";position:absolute;left:14px;top:100%;border:5px solid transparent;border-top-color:#2f2a33}
+.mc-mail:hover .mc-tip,.mc-mail:focus-visible .mc-tip,.mc-mail.copied .mc-tip{opacity:1;transform:none}
+.mc-mail.copied .mc-tip{background:var(--accent)}
+.mc-mail.copied .mc-tip::after{border-top-color:var(--accent)}
+.mc-mail:hover .mc-v{border-color:#2a2230}
+.mc-mail{cursor:copy}
+.mc-res .mc-k,.mc-res .mc-v{transition:color .25s}
+.mc-res:hover .mc-v,.mc-res:focus-visible .mc-v,.mc-res:hover .mc-k,.mc-res:focus-visible .mc-k{color:var(--accent)}
+.mc-res:hover .mc-v,.mc-res:focus-visible .mc-v{border-color:var(--accent)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.mc:hover{transform:translateY(-8px) scale(1.012);box-shadow:0 26px 50px rgba(40,30,40,.18)}}
+@media(max-width:420px){.mc{aspect-ratio:auto;gap:18px;padding:22px}}
+.mc .bye{position:absolute;right:22px;bottom:16px;width:104px;margin:0;z-index:1}
+.mc .bye svg{overflow:visible}
+.mc-info{padding-right:128px}
+@media(max-width:480px){.mc .bye{right:12px;bottom:12px;width:80px}.mc-info{padding-right:0}.mc-name{padding-right:0}}
+@media(max-width:360px){.mc .bye{width:64px;right:8px}}
+.totop{align-self:center;display:inline-flex;align-items:center;gap:8px;margin:48px auto 110px;padding:10px 22px;border:1px solid var(--line);border-radius:24px;background:#fff;color:var(--fg);font-family:"Montserrat",sans-serif;font-size:13px;font-weight:500;letter-spacing:.16em;box-shadow:0 4px 14px rgba(40,30,40,.06);transition:transform .2s ease,box-shadow .2s ease}
+.totop:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(40,30,40,.12)}
 .thx{font-family:"Noto Serif JP",Georgia,serif;font-size:clamp(18px,2.4vw,24px);line-height:1.7;color:var(--fg);margin:0 0 20px}
 .bds{display:grid;gap:20px;margin-bottom:8px}
 .bd{border:1px solid var(--line);border-radius:4px;background:var(--panel);padding:16px}
 .bd h3{margin:0;font-size:18px;font-weight:500}
 .bd p{margin:2px 0 12px;color:var(--mute);font-size:15px}
+.bdj{font-size:14px;font-weight:400;color:color-mix(in srgb,var(--mute) 78%,var(--fg));margin-left:10px;letter-spacing:.04em;white-space:nowrap}
+.meta .mi{display:inline-block;margin-right:20px}
+.meta .mi::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:7px;vertical-align:.12em}
 .bs{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
 .bs div{aspect-ratio:16/10;border-radius:3px;background:linear-gradient(135deg,var(--line),var(--panel));display:flex;align-items:flex-end;padding:6px 8px;font-size:13px;color:var(--fg)}
 .rcard{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:520px;padding:20px 24px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--fg);text-decoration:none;transition:border-color .2s,box-shadow .2s}
@@ -163,87 +236,107 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 <div id="glow" aria-hidden="true"></div>
 <canvas id="px" aria-hidden="true"></canvas>
 <header><div id="prog"></div><div class="wrap">
-<strong>LEE HAN</strong>
-<nav><a href="#breakdown">Breakdown</a><a href="#animation">Animation</a><a href="#modeling">Modeling</a><a href="#drawing">Drawing</a><a href="#about">About</a><a href="#resume">Resume</a><a href="#contact">Contact</a><button class="theme" id="theme" type="button">Light / Dark</button></nav>
+<a class="home" id="home" href="./" aria-label="LEE HAN トップへ">LEE HAN</a>
+<nav><a href="#showreel">Showreel</a><a href="#breakdown">Breakdown</a><a href="#animation">Animation</a><a href="#modeling">Modeling</a><a href="#drawing">Drawing</a><a href="#about">About</a><a href="#resume">Resume</a><a href="#contact">Contact</a><button class="theme" id="theme" type="button">Light / Dark</button></nav>
 </div></header>
 
 <main class="wrap">
-<div class="top"><div class="hero"><div class="hero-t"><p class="sub" style="margin-top:36px">Compositor · イ・ハン</p>
-<h1><span class="ln">光と色を合わせて、</span><span class="ln">一枚の絵に仕上げるコンポジター</span></h1>
+<div class="top"><div class="hero"><div class="hero-t"><h1><span class="ln ttl">Compositing Portfolio</span><span class="ln">LEE HAN</span></h1><p class="sub">Compositor · イ・ハン</p>
 <p class="lead">Nukeでロト、キーイング、カードプロジェクションによる背景合成を制作しています。3Dアニメーションとストップモーションの制作経験もあります。</p></div>
 </div>
 
+<div class="shd" id="showreel"><p class="sub">00</p><h2>Compositing Showreel<small class="jp">ショーリール</small></h2></div>
 <a class="reel" href="#" target="_blank" rel="noopener" aria-label="Compositing Showreelを再生"><span>Compositing Showreel · 1:00（クリックでYouTubeが開きます）</span></a>
 <p class="hint">サムネイル画像とYouTubeリンクを設定すると、ここから再生できます。</p></div>
 
 <section id="breakdown">
-<p class="sub">01</p><h2>Breakdown</h2>
+<p class="sub">01</p><h2>Breakdown<small class="jp">ブレイクダウン</small></h2>
 <p class="lead">作品ごとに、制作の流れを段階別に紹介します。</p>
 
 <div class="bds">
-<article class="bd"><h3>Rotoscoping</h3><p>使用ツール：Nuke</p><div class="bs"><div>Plate</div><div>Roto</div><div>Matte</div><div>Comp</div></div></article>
-<article class="bd"><h3>Matte Painting</h3><p>使用ツール：Maya、Higgsfield、Nuke</p><div class="bs"><div>Plate</div><div>Layout</div><div>Paint</div><div>Comp</div></div></article>
-<article class="bd"><h3>Removal 01</h3><p>使用ツール：（記載）</p><div class="bs"><div>Plate</div><div>Clean Plate</div><div>Patch</div><div>Final</div></div></article>
-<article class="bd"><h3>Removal 02</h3><p>使用ツール：（記載）</p><div class="bs"><div>Plate</div><div>Clean Plate</div><div>Patch</div><div>Final</div></div></article>
+<article class="bd"><h3>Rotoscoping<small class="bdj">ロトスコープ</small></h3><p class="meta"><span class="mi">使用ツール：Nuke</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><div>Plate</div><div>Spline</div><div>Alpha Matte</div><div>Final</div></div></article>
+<article class="bd"><h3>Matte Painting 01<small class="bdj">マットペイント 01</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Higgsfield</span><span class="mi">制作期間：2ヶ月</span></p><div class="bs"><div>Plate</div><div>Layout</div><div>Paint</div><div>Comp</div></div></article>
+<article class="bd"><h3>Matte Painting 02<small class="bdj">マットペイント 02</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Whik Studio</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><div>Plate</div><div>Layout</div><div>Paint</div><div>Comp</div></div></article>
+<article class="bd"><h3>Removal<small class="bdj">リムーバル</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Photoshop</span><span class="mi">制作期間：1週間</span></p><div class="bs"><div>Plate</div><div>Clean Plate</div><div>Patch</div><div>Final</div></div></article>
 </div>
 <div class="ng">Node Graph（任意）：整理でき次第、キーイング部分と合成部分を掲載します。</div>
 </section>
 
 <section id="animation">
-<p class="sub">02</p><h2>Animation</h2>
+<p class="sub">02</p><h2>Animation<small class="jp">アニメーション</small></h2>
 <p class="lead">3Dアニメーションとストップモーションの作品です。</p>
 <div class="grid">
-<article class="work"><div class="th play"></div><h3>3D Animation</h3><p class="award">卒業制作（2名制作）</p><p>担当：モデリング、アニメーション、サウンド</p><p>演技カット · Maya（使用ツールを記載）</p><a href="#">YouTubeで見る</a></article>
-<article class="work"><a class="th play" data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener" aria-label="Stop Motionの動画をYouTubeで見る"></a><h3>Stop Motion</h3><p class="award">ACジャパン広告学生賞 奨励賞 受賞</p><p>5名制作 · 担当：サウンド素材の収集（小道具制作・撮影・編集は全員で担当）</p><a data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener">YouTubeで見る</a></article>
+<article class="work"><div class="th play"></div><h3>3D Animation<small class="bdj">3Dアニメーション</small></h3><p class="award">卒業制作（2名制作）</p><p class="meta"><span class="mi">担当：モデリング、アニメーション、サウンド</span></p><p class="meta"><span class="mi">使用ツール：Maya、Arnold、Premiere Pro</span></p><a href="#">YouTubeで見る</a></article>
+<article class="work"><a class="th play" data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener" aria-label="Stop Motionの動画をYouTubeで見る"></a><h3>Stop Motion<small class="bdj">ストップモーション</small></h3><p class="award">ACジャパン広告学生賞 奨励賞 受賞</p><p class="meta"><span class="mi">5名制作</span><span class="mi">担当：サウンド素材の収集（小道具制作、撮影、編集は全員で担当）</span></p><p class="meta"><span class="mi">使用ツール：Dragonframe、Premiere Pro</span></p><a data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener">YouTubeで見る</a></article>
 </div>
 </section>
 
 <section id="modeling">
-<p class="sub">03</p><h2>Modeling</h2>
-<p class="lead">ワイヤーフレームとレンダリング結果を、左右にドラッグして比較できます。（サンプル図形）</p>
-<div class="grid mg">
-<article class="work m"><div class="stage"><div class="scene solid"><span class="tag">Render</span><div class="obj"></div></div><div class="scene wire"><span class="tag">Wireframe</span><div class="obj"></div></div><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="ワイヤーフレームとレンダリング結果の比較"><button class="zoom" type="button" aria-label="拡大して見る">拡大</button></div><h3>Model 01</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
-<article class="work m"><div class="stage"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="border-radius:14%"></div></div><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="border-radius:14%"></div></div><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="ワイヤーフレームとレンダリング結果の比較"><button class="zoom" type="button" aria-label="拡大して見る">拡大</button></div><h3>Model 02</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
-<article class="work m"><div class="stage"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="ワイヤーフレームとレンダリング結果の比較"><button class="zoom" type="button" aria-label="拡大して見る">拡大</button></div><h3>Model 03</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
+<p class="sub">03</p><h2>Modeling<small class="jp">モデリング</small></h2>
+<p class="lead">レンダリングとワイヤーフレームを並べて掲載しています。画像をクリックすると拡大表示されます。（サンプル図形）</p>
+<div class="grid mg" id="mgs">
+<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 01のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 01のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 01</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
+<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 02のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="border-radius:14%"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 02のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="border-radius:14%"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 02</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
+<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 03のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 03のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 03</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
 </div>
 </section>
 
 <section id="drawing">
-<p class="sub">04</p><h2>Drawing</h2>
+<p class="sub">04</p><h2>Drawing<small class="jp">デッサン・クロッキー</small></h2>
 <p class="lead">人体や静物のデッサンから厳選した作品です。</p>
 <div class="draw"><button type="button" aria-label="拡大して見る 1"></button><button type="button" aria-label="拡大して見る 2"></button><button type="button" aria-label="拡大して見る 3"></button><button type="button" aria-label="拡大して見る 4"></button><button type="button" aria-label="拡大して見る 5"></button><button type="button" aria-label="拡大して見る 6"></button></div>
 </section>
 
 <section id="about">
-<p class="sub">05</p><h2>About</h2>
+<p class="sub">05</p><h2>About<small class="jp">自己紹介</small></h2>
 <p class="lead">コンポジターを目指しています。ロトスコープ、マットペイント、リムーバルを中心に制作してきました。これまでに3Dアニメーション、ストップモーション、モデリング、デッサンも制作しています。（自己紹介を編集してください）</p>
 <div class="abg">
 <div><h3>Skills</h3><ul class="chips"><li>Rotoscoping</li><li>Keying</li><li>Matte Painting</li><li>Removal</li><li>3D Animation</li><li>Stop Motion</li><li>Modeling</li><li>Drawing</li></ul></div>
-<div><h3>Tools</h3><ul class="chips"><li>Nuke</li><li>Maya</li><li>Higgsfield</li><li>（追加）</li></ul></div>
+<div class="sw"><h3>Software</h3>
+<ul class="tools">
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg></span><span class="ttx"><b>Maya</b><span>モデリング、アニメーション、シーケンスレンダリング、プロジェクション、AOV出力</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M8.5 6h2a3 3 0 0 1 3 3v0a3 3 0 0 0 2 2.8M8.5 18h2a3 3 0 0 0 3-3v0a3 3 0 0 1 2-2.8"/></svg></span><span class="ttx"><b>Nuke</b><span>ロト、キーイング、リムーバル、カードプロジェクション合成</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5 19.5 9.5 10 19H5v-5z"/><path d="M12.5 6.5l5 5"/></svg></span><span class="ttx"><b>Photoshop</b><span>レベル補正、リムーバル</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg></span><span class="ttx"><b>Premiere Pro</b><span>映像編集</span></span></li>
+</ul></div>
+<div class="sw"><h3>Education</h3>
+<ul class="edu">
+<li><span class="ey">2023</span><span>京都精華大学 アニメーション学科 卒業（学士）</span></li>
+<li><span class="ey">2023 – 2026.03</span><span>メガキャリアラボ「MAYAハードサーフェスモデリングアセット課程」修了</span></li>
+<li><span class="ey">2026.06 – 2026.12</span><span>メガキャリアラボ「日本OTT基盤CG映像（MAYA+NUKE）制作者研修課程」（K-Move）修了見込み</span></li>
+</ul></div>
 <div><h3>Awards</h3><p>ACジャパン広告学生賞 奨励賞（第○回）</p></div>
-<div><h3>Language</h3><p>（言語とレベルを記載）</p></div>
+<div><h3>Language</h3><p>2020年 日本語能力試験 JLPT N1 取得</p></div>
 </div>
 </section>
 
 <section id="resume">
-<p class="sub">06</p><h2>Resume</h2>
+<p class="sub">06</p><h2>Resume<small class="jp">履歴書</small></h2>
 <p class="lead">履歴書と職務経歴書をPDFでご覧いただけます。</p>
 <a class="rcard" href="#" target="_blank" rel="noopener"><span><b>履歴書・職務経歴書（PDF）</b><small>クリックで新しいタブに開きます</small></span><i aria-hidden="true">→</i></a>
 </section>
 </main>
 
 <footer id="contact"><div class="wrap">
-<p class="sub">Contact</p>
-<p class="thx">最後までご覧いただき、ありがとうございます。</p>
-<p>Email <a href="mailto:name@example.com">name@example.com</a> · Resume <a href="#">PDF</a></p>
-<div class="bye" aria-hidden="true"><svg id="byesvg" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg"><ellipse cx="100" cy="228" rx="50" ry="7" fill="#000" opacity=".12"/><g id="bbody"><g id="bwl"><ellipse cx="66" cy="118" rx="20" ry="36" transform="rotate(-28 66 118)" fill="#fff" opacity=".75" stroke="#bfe3f2" stroke-width="2"/></g><g id="bwr"><ellipse cx="134" cy="118" rx="20" ry="36" transform="rotate(28 134 118)" fill="#fff" opacity=".75" stroke="#bfe3f2" stroke-width="2"/></g><clipPath id="bclip"><ellipse cx="100" cy="160" rx="44" ry="56"/></clipPath><ellipse cx="100" cy="160" rx="44" ry="56" fill="#ffd04a"/><g clip-path="url(#bclip)"><rect x="50" y="146" width="100" height="13" fill="#3b2f3f"/><rect x="50" y="172" width="100" height="13" fill="#3b2f3f"/><rect x="50" y="198" width="100" height="13" fill="#3b2f3f"/></g><ellipse cx="100" cy="160" rx="44" ry="56" fill="none" stroke="#e0a020" stroke-width="2"/><ellipse cx="84" cy="219" rx="11" ry="6" fill="#3b2f3f"/><ellipse cx="116" cy="219" rx="11" ry="6" fill="#3b2f3f"/><path d="M68 134 L95 172" stroke="#9a6a2e" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M132 134 L105 172" stroke="#9a6a2e" stroke-width="10" stroke-linecap="round" fill="none"/><circle cx="97" cy="174" r="7" fill="#9a6a2e"/><circle cx="103" cy="174" r="7" fill="#9a6a2e"/></g><g id="bhead"><g id="bal"><path d="M88 46 Q80 30 72 22" stroke="#3b2f3f" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="72" cy="22" r="5" fill="#3b2f3f"/></g><g id="bar"><path d="M112 46 Q120 30 128 22" stroke="#3b2f3f" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="128" cy="22" r="5" fill="#3b2f3f"/></g><circle cx="100" cy="80" r="42" fill="#ffe27a" stroke="#e0a020" stroke-width="2"/><circle class="ey" cx="85" cy="82" r="5" fill="#2d2330"/><circle class="ey" cx="115" cy="82" r="5" fill="#2d2330"/><circle cx="73" cy="94" r="6" fill="#ff8fb8" opacity=".5"/><circle cx="127" cy="94" r="6" fill="#ff8fb8" opacity=".5"/><path d="M92 96 Q100 105 108 96" fill="none" stroke="#2d2330" stroke-width="3" stroke-linecap="round"/></g></svg></div>
+<p class="sub" style="align-self:center">Contact</p>
+<p class="thx" style="align-self:center;text-align:center">最後までご覧いただき、ありがとうございます。</p>
+<div class="mc">
+<div class="mc-top"><span class="mc-role">Compositor</span></div>
+<div class="mc-name"><b>LEE HAN</b><span>イ・ハン</span></div>
+<div class="mc-info">
+<a class="mc-row mc-mail" href="mailto:leleland999@gmail.com" data-copy="leleland999@gmail.com" aria-label="メールアドレスをコピー"><span class="mc-tip" aria-hidden="true">クリックでコピー</span><span class="mc-k" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span><span class="mc-v">leleland999@gmail.com</span></a>
+<a class="mc-row mc-res" href="#" target="_blank" rel="noopener"><span class="mc-k" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span><span class="mc-v">履歴書・職務経歴書（PDF）</span></a>
+</div>
+<div class="bye" aria-hidden="true"><svg id="byesvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><ellipse cx="100" cy="190" rx="40" ry="4.5" fill="#000" opacity=".07"/><g id="bbody"><g id="bwl"><circle cx="58" cy="106" r="18" fill="#e9edf1"/></g><g id="bwr"><circle cx="142" cy="106" r="18" fill="#e9edf1"/></g><clipPath id="bclip"><rect x="54" y="70" width="92" height="114" rx="46"/></clipPath><rect x="54" y="70" width="92" height="114" rx="46" fill="#f4cd55"/><g clip-path="url(#bclip)"><rect x="54" y="150" width="92" height="12" fill="#2f2a33"/><rect x="54" y="172" width="92" height="12" fill="#2f2a33"/></g><path d="M56 118 Q66 136 90 140M144 118 Q134 136 110 140" stroke="#dca62c" stroke-width="4.5" fill="none" stroke-linecap="round"/><circle cx="93" cy="140" r="7" fill="#dca62c"/><circle cx="107" cy="140" r="7" fill="#dca62c"/></g><g id="bhead"><g id="bal"><path d="M90 72 Q86 56 79 52" stroke="#2f2a33" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="79" cy="52" r="4" fill="#2f2a33"/></g><g id="bar"><path d="M110 72 Q114 56 121 52" stroke="#2f2a33" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="121" cy="52" r="4" fill="#2f2a33"/></g><g id="bface"><circle class="ey" cx="87" cy="106" r="4.2" fill="#2f2a33"/><circle class="ey" cx="113" cy="106" r="4.2" fill="#2f2a33"/><path class="eyc" d="M82.5 104 Q87 109 91.5 104M108.5 104 Q113 109 117.5 104" stroke="#2f2a33" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0"/><ellipse cx="76" cy="116" rx="6" ry="3.5" fill="#f0a8a0" opacity=".5"/><ellipse cx="124" cy="116" rx="6" ry="3.5" fill="#f0a8a0" opacity=".5"/><path d="M95 116 Q100 120 105 116" stroke="#2f2a33" stroke-width="2.6" fill="none" stroke-linecap="round"/></g></g></svg></div>
+</div>
+<button class="totop" id="totop" type="button"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>TOP</button>
 </div></footer>
 
 <dialog id="dlg" aria-label="拡大表示"><button type="button" class="x" id="dlgx" aria-label="閉じる">×</button><div id="dlgb"></div></dialog>
 <script>
 (function(){
 document.documentElement.setAttribute('data-theme','light');
-function bind(s){var w=s.querySelector('input');w.addEventListener('input',function(){s.style.setProperty('--p',w.value+'%')});}
+function bind(s){var w=s.querySelector('input');if(!w)return;w.addEventListener('input',function(){s.style.setProperty('--p',w.value+'%')});}
 document.querySelectorAll('.stage').forEach(bind);
 var dlg=document.getElementById('dlg'),body=document.getElementById('dlgb');
 document.querySelectorAll('.zoom').forEach(function(b){b.addEventListener('click',function(){
@@ -275,29 +368,35 @@ document.addEventListener('mouseleave',function(){gl.style.opacity='0'});
 (function(){
 var svg=document.getElementById('byesvg'),body=document.getElementById('bbody'),head=document.getElementById('bhead'),bwl=document.getElementById('bwl'),bwr=document.getElementById('bwr'),bal=document.getElementById('bal'),bar=document.getElementById('bar');
 if(!svg||!body||!head)return;
-var NS='http://www.w3.org/2000/svg',hair=document.createElementNS(NS,'circle');
-hair.setAttribute('cx','100');hair.setAttribute('cy','80');hair.setAttribute('r','42');hair.setAttribute('fill','#3b2f3f');hair.setAttribute('opacity','0');
-head.appendChild(hair);
+var face=document.getElementById('bface');var eyc=head.querySelector('.eyc');
 var eyes=[].slice.call(head.querySelectorAll('.ey'));
-var N=24,last=-1,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var N=24,last=-1,cur=0,tgt=0,raf=0,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function ease(u){return u*u*(3-2*u);}
-function bow(t){if(t<0.35)return 0.08;if(t<0.7)return 0.08+0.92*ease((t-0.35)/0.35);return 1;}
-function pose(f){var b=bow(f/(N-1)),s=1-0.12*b;
-body.setAttribute('transform','translate(0 216) scale(1 '+(1-0.14*b).toFixed(3)+') translate(0 -216)');
-head.setAttribute('transform','translate(0 '+(40*b).toFixed(1)+') translate(100 128) scale(1 '+s.toFixed(3)+') translate(-100 -128) rotate('+(4*b).toFixed(1)+' 100 128)');
-hair.setAttribute('opacity',Math.max(0,Math.min(1,(b-0.6)/0.3)).toFixed(2));
-var w=Math.sin(f/(N-1)*Math.PI*10)*9;
-if(bwl)bwl.setAttribute('transform','rotate('+(-w).toFixed(1)+' 80 122)');
-if(bwr)bwr.setAttribute('transform','rotate('+w.toFixed(1)+' 120 122)');
-if(bal)bal.setAttribute('transform','rotate('+(-26*b).toFixed(1)+' 88 46)');
-if(bar)bar.setAttribute('transform','rotate('+(26*b).toFixed(1)+' 112 46)');
-eyes.forEach(function(e){var cx=e.getAttribute('cx'),cy=e.getAttribute('cy');e.setAttribute('transform',b>0.5?'translate('+cx+' '+cy+') scale(1 .2) translate(-'+cx+' -'+cy+')':'');});}
+function bow(t){if(t<0.35)return 0;if(t<0.7)return ease((t-0.35)/0.35);return 1;}
+function cl(v){return Math.max(0,Math.min(1,v));}
+function pose(t){var b=bow(t);
+body.setAttribute('transform','translate(0 184) scale(1 '+(1-0.07*b).toFixed(3)+') translate(0 -184)');
+if(face){face.setAttribute('transform','translate(0 '+(12*b).toFixed(1)+') translate(100 112) scale(1 '+(1-0.12*b).toFixed(3)+') translate(-100 -112)');}
+var w=Math.sin(t*Math.PI*10)*10;
+if(bwl)bwl.setAttribute('transform','rotate('+(-w).toFixed(1)+' 72 104)');
+if(bwr)bwr.setAttribute('transform','rotate('+w.toFixed(1)+' 128 104)');
+var as=(1-0.5*b).toFixed(3),dy=(10*b).toFixed(1);
+if(bal)bal.setAttribute('transform','translate(0 '+dy+') rotate('+(-16*b).toFixed(1)+' 90 72) translate(90 72) scale(1 '+as+') translate(-90 -72)');
+if(bar)bar.setAttribute('transform','translate(0 '+dy+') rotate('+(16*b).toFixed(1)+' 110 72) translate(110 72) scale(1 '+as+') translate(-110 -72)');
+var shut=b>0.3;eyes.forEach(function(e){e.setAttribute('opacity',shut?'0':'1');});if(eyc)eyc.setAttribute('opacity',shut?'1':'0');}
 function upd(){var vh=window.innerHeight,ct=svg.getBoundingClientRect().top+window.scrollY,S=ct-vh+40,E=document.documentElement.scrollHeight-vh;
 var p=E>S?(window.scrollY-S)/(E-S):0;p=Math.max(0,Math.min(1,p));
-var f=Math.round(p*(N-1));if(f!==last){last=f;pose(f);}}
+tgt=p;if(!raf)raf=requestAnimationFrame(step);}
+function step(){cur+=(tgt-cur)*0.16;if(Math.abs(tgt-cur)<0.001)cur=tgt;pose(cur);raf=cur!==tgt?requestAnimationFrame(step):0;}
 if(reduce){pose(0);return;}
 window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 })();
+(function(){var m=document.getElementById('mgs');if(!m)return;
+var bs=[].slice.call(document.querySelectorAll('.hs-b'));
+function step(){var c=m.querySelector('.work');return c?c.offsetWidth+16:300;}
+bs.forEach(function(b){b.addEventListener('click',function(){m.scrollBy({left:(+b.getAttribute('data-dir'))*step(),behavior:'smooth'});});});
+function st(){var max=m.scrollWidth-m.clientWidth-2;if(bs[0])bs[0].disabled=m.scrollLeft<=2;if(bs[1])bs[1].disabled=m.scrollLeft>=max;}
+m.addEventListener('scroll',st,{passive:true});window.addEventListener('resize',st);st();})();
 var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var secs=[].slice.call(document.querySelectorAll('main section'));
 if(!rm&&'IntersectionObserver' in window){
@@ -315,6 +414,13 @@ var prog=document.getElementById('prog'),reel=document.querySelector('.reel'),tk
 function upd(){tk=false;var h=document.documentElement.scrollHeight-window.innerHeight;prog.style.transform='scaleX('+(h>0?Math.min(1,window.scrollY/h):0)+')';
 if(!rm&&reel){var r=reel.getBoundingClientRect(),t=(window.innerHeight-r.top)/(window.innerHeight+r.height);reel.style.setProperty('--py',Math.max(0,Math.min(1,t))*100+'%');}}
 window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});window.addEventListener('resize',upd);upd();
+var hm=document.getElementById('home');if(hm)hm.addEventListener('click',function(e){e.preventDefault();try{history.scrollRestoration='manual';}catch(_){}window.scrollTo(0,0);location.href=location.pathname+location.search;});
+document.querySelectorAll('[data-copy]').forEach(function(el){var tip=el.querySelector('.mc-tip'),t0=tip?tip.textContent:'',tm;
+el.addEventListener('click',function(e){e.preventDefault();var v=el.getAttribute('data-copy');
+function done(ok){if(!tip)return;tip.textContent=ok?'コピーしました！':v;el.classList.add('copied');clearTimeout(tm);tm=setTimeout(function(){el.classList.remove('copied');tip.textContent=t0;},1600);}
+function fb(){try{var ta=document.createElement('textarea');ta.value=v;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();var ok=document.execCommand('copy');document.body.removeChild(ta);done(ok);}catch(_){done(false);}}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(function(){done(true)},fb);}else fb();});});
+var tt=document.getElementById('totop');if(tt)tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:rm?'auto':'smooth'});});
 document.getElementById('dlgx').addEventListener('click',function(){dlg.close()});
 dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
 dlg.addEventListener('close',function(){body.innerHTML='';});
@@ -330,6 +436,20 @@ var p=document.createElement('p');p.className='vfb';
 var a=document.createElement('a');a.href='https://youtu.be/'+id;a.target='_blank';a.rel='noopener';a.textContent='YouTubeで開く';
 p.appendChild(document.createTextNode('再生されない場合は '));p.appendChild(a);
 body.appendChild(t);body.appendChild(v);body.appendChild(p);dlg.showModal();});});
+document.querySelectorAll('.mz').forEach(function(b){b.addEventListener('click',function(){
+var card=b.closest('.work'),title=card.querySelector('h3').textContent;
+var views=[['Render',card.querySelector('.solid')],['Wireframe',card.querySelector('.wire')]],idx=0;
+body.innerHTML='';
+var t=document.createElement('h3');t.textContent=title;t.style.margin='0 0 10px';
+var mv=document.createElement('div');mv.className='mv';
+var tabs=document.createElement('div');tabs.className='mtabs';
+function show(i){idx=(i+views.length)%views.length;mv.innerHTML='';var c=views[idx][1].cloneNode(true);c.hidden=false;mv.appendChild(c);
+mv.appendChild(arrowM('pv','\u2039','前へ',-1));mv.appendChild(arrowM('nx','\u203a','次へ',1));
+[].forEach.call(tabs.children,function(x,k){x.setAttribute('aria-pressed',k===idx?'true':'false')});}
+function arrowM(cls,txt,label,d){var a=document.createElement('button');a.type='button';a.className='pn '+cls;a.textContent=txt;a.setAttribute('aria-label',label);a.addEventListener('click',function(){show(idx+d)});return a;}
+views.forEach(function(v,k){var x=document.createElement('button');x.type='button';x.className='mtab';x.textContent=v[0];x.addEventListener('click',function(){show(k)});tabs.appendChild(x);});
+body.appendChild(t);body.appendChild(mv);body.appendChild(tabs);show(+b.getAttribute('data-v')||0);dlg.showModal();
+mv.tabIndex=-1;dlg.onkeydown=function(e){if(!body.contains(mv))return;if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1);};});});
 var tiles=[].slice.call(document.querySelectorAll('.draw button')),cur=0;
 function arrow(cls,txt,label,d){var a=document.createElement('button');a.type='button';a.className='pn '+cls;a.textContent=txt;a.setAttribute('aria-label',label);a.addEventListener('click',function(){showDraw(cur+d)});return a;}
 function showDraw(i){cur=(i+tiles.length)%tiles.length;body.innerHTML='';
