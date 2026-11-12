@@ -351,6 +351,11 @@ nav a.on{color:var(--accent)!important;font-weight:700}
 .rcard:hover,.rcard:focus-visible{border-color:var(--accent)!important}
 .rcard:hover b,.rcard:focus-visible b{color:var(--accent)}
 .rcard b{transition:color .2s}
+nav{counter-reset:nv -1}
+nav a::before{content:counter(nv,decimal-leading-zero);font-size:.72em;font-weight:400;letter-spacing:.04em;margin-right:6px;opacity:.6;position:relative;top:-.08em}
+nav a{counter-increment:nv}
+.hero-t{margin-bottom:36px!important}
+.top>.reel{width:min(100%,max(70%,calc((100svh - var(--rt,340px) - 24px) * 16 / 9)))}
 </style>
 </head>
 <body>
@@ -614,6 +619,11 @@ var r=document.documentElement;
 r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark');
 });
 })();
+</script>
+<script>
+(function(){var r=document.querySelector('.top>.reel');if(!r)return;
+function fit(){var de=document.documentElement;de.style.setProperty('--rt','0px');var t=r.getBoundingClientRect().top+scrollY;de.style.setProperty('--rt',t+'px');}
+fit();addEventListener('resize',fit);if(document.fonts)document.fonts.ready.then(fit);addEventListener('load',fit);})();
 </script>
 </body>
 </html>
