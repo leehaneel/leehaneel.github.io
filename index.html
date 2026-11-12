@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LEE HAN · Compositor Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;500&family=Montserrat:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
-:root{--bg:#fdf8f6;--fg:#2a2230;--mute:#574e62;--line:#eadde2;--accent:#c2366c;--panel:#f6ebef;--ga:#ff7ab8;--gb:#5fd0ff;--gc:#ffc46b;--gm:26%;color-scheme:light;
+:root{--dotc:79,107,99;--bg:#fdf8f6;--fg:#2a2230;--mute:#574e62;--line:#eadde2;--accent:#c2366c;--panel:#f6ebef;--ga:#ff7ab8;--gb:#5fd0ff;--gc:#ffc46b;--gm:26%;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a22;--fg:#e1e9ec;--mute:#a9bac2;--line:#263944;--accent:#e6a850;--panel:#14252f;--ga:#e6a850;--gb:#3f8fb0;--gc:#e6a850;--gm:15%;color-scheme:dark}}
 :root[data-theme="dark"]{--ga:#e6a850;--gb:#3f8fb0;--gc:#e6a850;--gm:15%;--bg:#0e1a22;--fg:#e1e9ec;--mute:#a9bac2;--line:#263944;--accent:#e6a850;--panel:#14252f;color-scheme:dark}
@@ -32,7 +32,7 @@ button{font:inherit;cursor:pointer}
 h1,h2{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;line-height:1.3;margin:0;text-wrap:balance}
 h2{font-weight:600;letter-spacing:.01em}
 .work h3,.bd h3,.abg h3{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif}
-h1{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;font-weight:600;letter-spacing:.02em;font-size:clamp(26px,3.8vw,36px);line-height:1.25;margin:36px 0 14px;max-width:18em}
+h1{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;font-weight:600;letter-spacing:.02em;font-size:clamp(28px,4vw,42px);line-height:1.2;margin:48px 0 12px;max-width:18em}
 h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
 .ttl{font-family:"Montserrat","Noto Sans JP",system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .jp{font-family:"Noto Sans JP",system-ui,sans-serif;font-size:.47em;font-weight:400;color:color-mix(in srgb,var(--mute) 78%,var(--fg));margin-left:14px;letter-spacing:.06em;white-space:nowrap}
@@ -117,13 +117,27 @@ dialog::backdrop{background:#000c}
 .mtab[aria-pressed="true"]{border-color:var(--accent);background:var(--accent);color:#fff}
 .draw{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
 .draw button{display:block;width:100%;aspect-ratio:1;border:0;padding:0;border-radius:4px;cursor:zoom-in;background:linear-gradient(135deg,var(--line),var(--panel))}
-.draw button:hover{outline:2px solid var(--accent)}
+.draw button:hover{outline:none}
+.draw button::after{content:"";position:absolute;right:10px;bottom:10px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e1a24' stroke-width='2.3' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5 20 20'/%3E%3C/svg%3E") center/15px no-repeat;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:0;transform:scale(.85);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
+.draw button:hover::after,.draw button:focus-visible::after{opacity:1;transform:none}
+.draw button{transition:transform .3s ease,box-shadow .3s ease,filter .3s ease}
+.draw button:hover{filter:brightness(.97)}
 .big{position:relative;aspect-ratio:4/3;max-height:78vh;margin:0 auto;border-radius:4px;background:linear-gradient(135deg,var(--line),var(--panel))}
 .pn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:0;border-radius:50%;background:#000a;color:#fff;font-size:24px;line-height:1}
 .pn:hover{background:var(--accent);color:#000}
 .pv{left:10px}.nx{right:10px}
 #prog{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:#f4cd55;border-radius:0 2px 2px 0;transform:scaleX(0);transform-origin:left;pointer-events:none}
-#pbee{position:absolute;left:0;bottom:-12px;width:30px;height:24px;margin-left:-16px;pointer-events:none;z-index:2;will-change:transform}
+#pflw{position:absolute;right:10px;bottom:-12px;width:28px;height:24px;pointer-events:auto;cursor:pointer;z-index:1}
+#pgrs{position:absolute;left:7.5px;bottom:-10px;width:19px;height:20px;pointer-events:auto;cursor:pointer;z-index:1}
+#pgrs:focus-visible,#pflw:focus-visible,#pbee:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:50%}
+#pbee.drag{cursor:grabbing}
+#pgrs svg{width:100%;height:100%;display:block}
+#pflw svg{width:100%;height:100%;display:block;overflow:visible}
+#pflw .pf-p{transform-origin:14px 12px;transition:transform .6s cubic-bezier(.3,1.6,.5,1)}
+#pflw.arr .pf-p{transform:rotate(36deg) scale(1.15)}
+#pflw{transition:transform .4s ease}
+#pflw.arr{transform:translateY(-2px)}
+#pbee{position:absolute;left:0;bottom:-12px;width:30px;height:24px;margin-left:-16px;pointer-events:auto;cursor:grab;touch-action:none;z-index:2;will-change:transform}
 #pbee .pb-in{width:100%;height:100%;transition:transform .25s ease}
 #pbee.back .pb-in{transform:scaleX(-1)}
 #pbee svg{width:100%;height:100%;overflow:visible;display:block}
@@ -218,7 +232,15 @@ footer .wrap{display:flex;flex-direction:column;align-items:flex-start}
 .meta .mi{display:inline-block;margin-right:20px}
 .meta .mi::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:7px;vertical-align:.12em}
 .bs{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
-.bs div{aspect-ratio:16/10;border-radius:3px;background:linear-gradient(135deg,var(--line),var(--panel));display:flex;align-items:flex-end;padding:6px 8px;font-size:13px;color:var(--fg)}
+.bst{position:relative;aspect-ratio:16/10;border:0;border-radius:3px;padding:0;overflow:hidden;background:linear-gradient(135deg,var(--line),var(--panel));cursor:zoom-in;font:inherit;color:var(--fg);transition:transform .2s ease,box-shadow .2s ease}
+.bst img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bsl{position:absolute;left:6px;bottom:6px;padding:1px 8px;border-radius:10px;background:rgba(255,255,255,.85);color:#2a2230;font-size:12px}
+.bst:hover,.bst:focus-visible{transform:translateY(-2px);box-shadow:0 8px 18px rgba(40,30,40,.14)}
+.bsv{cursor:pointer}
+.bsp{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);color:#2f2a33;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.bsp svg{margin-left:2px}
+.mv img,.mv video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.mph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;background:linear-gradient(135deg,var(--line),var(--panel));color:var(--mute);font-size:14px;line-height:1.7}
 .rcard{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:520px;padding:20px 24px;border:1px solid var(--line);border-radius:4px;background:var(--panel);color:var(--fg);text-decoration:none;transition:border-color .2s,box-shadow .2s}
 .rcard b{display:block;font-weight:500}
 .rcard small{color:var(--mute);font-size:13px}
@@ -243,89 +265,143 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .hero .sub,main h1 .ln,.hero .lead,.top>.reel,.top>.hint{animation:up .8s ease both}
 .hero .sub{animation-delay:.05s}main h1 .ln:nth-child(1){animation-delay:.2s}main h1 .ln:nth-child(2){animation-delay:.38s}.hero .lead{animation-delay:.6s}.top>.reel{animation-delay:.8s}.top>.hint{animation-delay:.95s}}
 @media(prefers-reduced-motion:no-preference){.stage{animation:in .9s ease-out both}@keyframes in{from{opacity:0}to{opacity:1}}}
+
+/* image-first layout */
+.bds{gap:56px}
+.bd{border:0;background:none;padding:0}
+.bd h3{margin-bottom:2px}
+.bd .meta{margin:0 0 14px;font-size:14px}
+.bs{grid-template-columns:repeat(3,1fr);gap:10px}
+.bs .bst:last-child{grid-column:1/-1;order:-1;aspect-ratio:16/9;border-radius:6px}
+.bs .bst:last-child .bsl{left:12px;bottom:12px;font-size:13px;padding:2px 10px}
+.grid{gap:28px}
+.grid:not(.mg){grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.work .th{aspect-ratio:16/9}
+.badge{position:absolute;left:12px;top:12px;z-index:1;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,.92);color:#2a2230;font-size:12px;font-weight:500;letter-spacing:.02em}
+.work .tl{margin:2px 16px 0;font-size:13px;color:var(--mute);font-family:"Montserrat","Noto Sans JP",sans-serif;letter-spacing:.02em}
+.work.m h3{margin-bottom:0}
+.draw{grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px}
+section{padding-top:112px}
+
+/* calm & simple theme */
+html:root,html:root[data-theme]{--bg:#f6f7f6;--fg:#1e2321;--mute:#5f6865;--line:#e0e4e2;--panel:#eef1ef;--accent:#4f6b63;color-scheme:light}
+body::before,#glow,.theme{display:none!important}
+header{background:rgba(246,247,246,.94)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+h1,h2,.ttx b,.mc-name b{font-weight:500!important;letter-spacing:.02em}
+h2{font-size:clamp(24px,3vw,32px)}
+.ttl,.sub{color:var(--mute)!important;letter-spacing:.18em}
+nav a.on{color:var(--accent)!important;text-decoration:none}
+nav a{transition:color .25s}
+#prog{height:2px!important;background:var(--accent)!important}
+.meta .mi::before{background:var(--mute)!important}
+.badge{background:rgba(30,35,33,.78)!important;color:#fff!important;font-weight:400!important}
+.bsl{background:rgba(30,35,33,.72)!important;color:#fff!important}
+.work,.work.m{background:none!important;border:0!important;padding:0!important}
+.work h3,.work .meta,.work .tl{margin-left:0!important;margin-right:0!important}
+.work h3{margin-top:12px}
+.work .th,.stage,.bst,.draw button,.reel{border-radius:2px!important}
+.tools li{background:none!important;border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;padding:16px 0!important}
+.tic{background:none!important;color:var(--fg)!important;width:28px!important}
+.rcard{background:none!important}
+.mc{border-radius:2px!important;box-shadow:0 1px 2px rgba(0,0,0,.05)!important}
+@media(hover:hover){.mc:hover{transform:translateY(-3px)!important;box-shadow:0 10px 24px rgba(0,0,0,.08)!important}.work:hover{transform:none!important;box-shadow:none!important}.work:hover .th{transform:scale(1.02)}}
+.mc-mail.copied .mc-tip{background:var(--accent)}
+.mc-res:hover .mc-v,.mc-res:hover .mc-k{color:var(--accent)!important}
+html{background:var(--bg)}
+body{background:transparent!important}
+#dots{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.abj{margin-left:10px;font-family:"Noto Sans JP",sans-serif;font-size:12px;font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--mute)}
+.meta .mi.hang{display:flex;align-items:baseline;margin-right:0}
+.meta .mi.hang::before{flex:none;align-self:flex-start;margin-top:calc((1.85em - 7px)/2)}
+@media(max-width:560px){.meta .mi.hang{display:block}.meta .mi.hang::before{margin-top:0}.hv{display:block;padding-left:14px}}
+.hk{flex:none;white-space:nowrap}
+.hv{min-width:0}
+
+/* one family for Latin + Japanese */
+html body,html body *{font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif!important}
+h1,h2{font-weight:500!important;letter-spacing:.01em!important}
+.ttx b,.mc-name b,.work h3,.bd h3{font-weight:500!important}
+nav a{font-weight:500;letter-spacing:.01em;color:color-mix(in srgb,var(--fg) 80%,var(--bg))!important}
+nav a:hover{color:var(--fg)!important}
+nav a.on{color:var(--accent)!important;font-weight:700}
+.wrap{max-width:1180px}
+@media(max-width:639px){nav a{font-size:14px}}
 </style>
 </head>
 <body>
 <div id="glow" aria-hidden="true"></div>
 <canvas id="px" aria-hidden="true"></canvas>
-<header><div id="prog"></div><div id="pbee" aria-hidden="true"><div class="pb-in"><svg viewBox="0 0 30 24"><g class="pb-b"><ellipse class="pb-w" cx="13" cy="6" rx="5" ry="6.5" fill="#e9edf1" stroke="#cdd6de" stroke-width=".8"/><path d="M5 15 l-4 1.5 4 1.5z" fill="#2f2a33"/><clipPath id="pbc"><ellipse cx="15" cy="15" rx="10" ry="7.5"/></clipPath><ellipse cx="15" cy="15" rx="10" ry="7.5" fill="#f4cd55"/><g clip-path="url(#pbc)"><rect x="9" y="6" width="3" height="18" fill="#2f2a33"/><rect x="14.5" y="6" width="3" height="18" fill="#2f2a33"/></g><path d="M22 9 q2-5 5-5" stroke="#2f2a33" stroke-width="1.1" fill="none" stroke-linecap="round"/><circle cx="27" cy="4" r="1.2" fill="#2f2a33"/><circle cx="21.5" cy="13.5" r="1.3" fill="#2f2a33"/><ellipse cx="21" cy="17" rx="1.6" ry="1" fill="#f0a8a0" opacity=".6"/></g></svg></div></div><div class="wrap">
+<header><div id="prog"></div><div id="pgrs" role="button" tabindex="0" aria-label="ページの先頭へ" title="TOPへ"><svg viewBox="0 0 20 21"><path d="M10 10.4 L5.4 5.9 A3.25 3.25 0 1 1 10 2.5 A3.25 3.25 0 1 1 14.6 5.9 Z" style="fill:var(--fg);stroke:var(--bg);stroke-width:.8" transform="rotate(0 10 10.5)"/><path d="M10 10.4 L5.4 5.9 A3.25 3.25 0 1 1 10 2.5 A3.25 3.25 0 1 1 14.6 5.9 Z" style="fill:var(--fg);stroke:var(--bg);stroke-width:.8" transform="rotate(90 10 10.5)"/><path d="M10 10.4 L5.4 5.9 A3.25 3.25 0 1 1 10 2.5 A3.25 3.25 0 1 1 14.6 5.9 Z" style="fill:var(--fg);stroke:var(--bg);stroke-width:.8" transform="rotate(180 10 10.5)"/><path d="M10 10.4 L5.4 5.9 A3.25 3.25 0 1 1 10 2.5 A3.25 3.25 0 1 1 14.6 5.9 Z" style="fill:var(--fg);stroke:var(--bg);stroke-width:.8" transform="rotate(270 10 10.5)"/><circle cx="10" cy="10.5" r="1.3" style="fill:var(--bg)"/></svg></div><div id="pflw" role="button" tabindex="0" aria-label="ページの最後へ" title="最後へ"><svg viewBox="0 0 28 24"><g class="pf-p"><circle cx="14" cy="6.6" r="4" style="fill:var(--fg)"/><circle cx="19.2" cy="10.4" r="4" style="fill:var(--fg)"/><circle cx="17.2" cy="16.4" r="4" style="fill:var(--fg)"/><circle cx="10.8" cy="16.4" r="4" style="fill:var(--fg)"/><circle cx="8.8" cy="10.4" r="4" style="fill:var(--fg)"/></g><circle cx="14" cy="12" r="3.1" style="fill:var(--bg)"/></svg></div><div id="pbee" aria-hidden="true" title="ドラッグしてスクロール"><div class="pb-in"><svg viewBox="0 0 30 24"><g class="pb-b"><ellipse class="pb-w" cx="13" cy="6" rx="5" ry="6.5" fill="#e9edf1" stroke="#cdd6de" stroke-width=".8"/><path d="M5 15 l-4 1.5 4 1.5z" fill="#2f2a33"/><clipPath id="pbc"><ellipse cx="15" cy="15" rx="10" ry="7.5"/></clipPath><ellipse cx="15" cy="15" rx="10" ry="7.5" fill="#f4cd55"/><g clip-path="url(#pbc)"><rect x="9" y="6" width="3" height="18" fill="#2f2a33"/><rect x="14.5" y="6" width="3" height="18" fill="#2f2a33"/></g><path d="M22 9 q2-5 5-5" stroke="#2f2a33" stroke-width="1.1" fill="none" stroke-linecap="round"/><circle cx="27" cy="4" r="1.2" fill="#2f2a33"/><circle cx="21.5" cy="13.5" r="1.3" fill="#2f2a33"/><ellipse cx="21" cy="17" rx="1.6" ry="1" fill="#f0a8a0" opacity=".6"/></g></svg></div></div><div class="wrap">
 <a class="home" id="home" href="./" aria-label="LEE HAN トップへ">LEE HAN</a>
 <nav><a href="#showreel">Showreel</a><a href="#breakdown">Breakdown</a><a href="#animation">Animation</a><a href="#modeling">Modeling</a><a href="#drawing">Drawing</a><a href="#about">About</a><a href="#resume">Resume</a><a href="#contact">Contact</a><button class="theme" id="theme" type="button">Light / Dark</button></nav>
 </div></header>
 
 <main class="wrap">
-<div class="top"><div class="hero"><div class="hero-t"><h1><span class="ln ttl">Compositing Portfolio</span><span class="ln">LEE HAN</span></h1><p class="sub">Compositor · イ・ハン</p>
-<p class="lead">Nukeでロト、キーイング、カードプロジェクションによる背景合成を制作しています。3Dアニメーションとストップモーションの制作経験もあります。</p></div>
+<div class="top"><div class="hero"><div class="hero-t"><h1><span class="ln">Compositing Portfolio</span></h1><p class="sub">LEE HAN · イ・ハン</p></div>
 </div>
 
 <div class="shd" id="showreel"><p class="sub">00</p><h2>Compositing Showreel<small class="jp">ショーリール</small></h2></div>
-<a class="reel" href="#" target="_blank" rel="noopener" aria-label="Compositing Showreelを再生"><span>Compositing Showreel · 1:00（クリックでYouTubeが開きます）</span></a>
-<p class="hint">サムネイル画像とYouTubeリンクを設定すると、ここから再生できます。</p></div>
+<a class="reel" href="#" target="_blank" rel="noopener" aria-label="Compositing Showreelを再生"><span>Compositing Showreel · 1:00</span></a></div>
 
 <section id="breakdown">
 <p class="sub">01</p><h2>Breakdown<small class="jp">ブレイクダウン</small></h2>
-<p class="lead">作品ごとに、制作の流れを段階別に紹介します。</p>
 
 <div class="bds">
-<article class="bd"><h3>Rotoscoping<small class="bdj">ロトスコープ</small></h3><p class="meta"><span class="mi">使用ツール：Nuke</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><div>Plate</div><div>Spline</div><div>Alpha Matte</div><div>Final</div></div></article>
-<article class="bd"><h3>Matte Painting 01<small class="bdj">マットペイント 01</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Higgsfield</span><span class="mi">制作期間：2ヶ月</span></p><div class="bs"><div>Plate</div><div>Layout</div><div>Paint</div><div>Comp</div></div></article>
-<article class="bd"><h3>Matte Painting 02<small class="bdj">マットペイント 02</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Whik Studio</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><div>Plate</div><div>Layout</div><div>Paint</div><div>Comp</div></div></article>
-<article class="bd"><h3>Removal<small class="bdj">リムーバル</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Photoshop</span><span class="mi">制作期間：1週間</span></p><div class="bs"><div>Plate</div><div>Clean Plate</div><div>Patch</div><div>Final</div></div></article>
+<article class="bd"><h3>Rotoscoping<small class="bdj">ロトスコープ</small></h3><p class="meta"><span class="mi">使用ツール：Nuke</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Spline</span></button><button class="bst" type="button" data-img=""><span class="bsl">Alpha Matte</span></button><button class="bst" type="button" data-img=""><span class="bsl">Final</span></button></div></article>
+<article class="bd"><h3>Matte Painting 01<small class="bdj">マットペイント 01</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Higgsfield</span><span class="mi">制作期間：2ヶ月</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Layout</span></button><button class="bst" type="button" data-img=""><span class="bsl">Paint</span></button><button class="bst" type="button" data-img=""><span class="bsl">Comp</span></button></div></article>
+<article class="bd"><h3>Matte Painting 02<small class="bdj">マットペイント 02</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Whik Studio</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Layout</span></button><button class="bst" type="button" data-img=""><span class="bsl">Paint</span></button><button class="bst" type="button" data-img=""><span class="bsl">Comp</span></button></div></article>
+<article class="bd"><h3>Removal<small class="bdj">リムーバル</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Photoshop</span><span class="mi">制作期間：1週間</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Clean Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Patch</span></button><button class="bst" type="button" data-img=""><span class="bsl">Final</span></button></div></article>
 </div>
-<div class="ng">Node Graph（任意）：整理でき次第、キーイング部分と合成部分を掲載します。</div>
 </section>
 
 <section id="animation">
 <p class="sub">02</p><h2>Animation<small class="jp">アニメーション</small></h2>
-<p class="lead">3Dアニメーションとストップモーションの作品です。</p>
 <div class="grid">
-<article class="work"><div class="th play"></div><h3>3D Animation<small class="bdj">3Dアニメーション</small></h3><p class="award">卒業制作（2名制作）</p><p class="meta"><span class="mi">担当：モデリング、アニメーション、サウンド</span></p><p class="meta"><span class="mi">使用ツール：Maya、Arnold、Premiere Pro</span></p><a href="#">YouTubeで見る</a></article>
-<article class="work"><a class="th play" data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener" aria-label="Stop Motionの動画をYouTubeで見る"></a><h3>Stop Motion<small class="bdj">ストップモーション</small></h3><p class="award">ACジャパン広告学生賞 奨励賞 受賞</p><p class="meta"><span class="mi">5名制作</span><span class="mi">担当：サウンド素材の収集（小道具制作、撮影、編集は全員で担当）</span></p><p class="meta"><span class="mi">使用ツール：Dragonframe、Premiere Pro</span></p><a data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener">YouTubeで見る</a></article>
+<article class="work"><div class="th play"><span class="badge">卒業制作</span></div><h3>3D Animation<small class="bdj">3Dアニメーション</small></h3><p class="meta"><span class="mi hang"><span class="hk">2名制作 · 担当：</span><span class="hv">モデリング、アニメーション、サウンド</span></span><span class="mi">制作期間：1年</span></p><p class="tl">Maya · Arnold · Premiere Pro</p></article>
+<article class="work"><a class="th play" data-yt="AXpW5HzPmsY" href="https://youtu.be/AXpW5HzPmsY" target="_blank" rel="noopener" aria-label="Stop Motionの動画を再生"><span class="badge">ACジャパン広告学生賞 奨励賞</span></a><h3>Stop Motion<small class="bdj">ストップモーション</small></h3><p class="meta"><span class="mi hang"><span class="hk">5名制作 · 担当：</span><span class="hv">小道具制作・撮影・編集（全員で共同）、<br>サウンド素材の収集</span></span><span class="mi">制作期間：6ヶ月</span></p><p class="tl">Dragonframe · Premiere Pro</p></article>
 </div>
 </section>
 
 <section id="modeling">
 <p class="sub">03</p><h2>Modeling<small class="jp">モデリング</small></h2>
-<p class="lead">レンダリングとワイヤーフレームを並べて掲載しています。画像をクリックすると拡大表示されます。（サンプル図形）</p>
 <div class="grid mg" id="mgs">
-<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 01のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 01のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 01</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
-<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 02のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="border-radius:14%"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 02のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="border-radius:14%"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 02</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
-<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 03のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 03のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 03</h3><p>モデル名 · 使用ツール · ポリゴン数</p></article>
+<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 01のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 01のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 01</h3></article>
+<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 02のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="border-radius:14%"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 02のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="border-radius:14%"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 02</h3></article>
+<article class="work m"><div class="mpair"><button class="stage mz" type="button" data-v="0" aria-label="Model 03のレンダリングを拡大"><div class="scene solid"><span class="tag">Render</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button><button class="stage mz" type="button" data-v="1" style="--p:100%" aria-label="Model 03のワイヤーフレームを拡大"><div class="scene wire"><span class="tag">Wireframe</span><div class="obj" style="width:22%;height:56%;aspect-ratio:auto"></div></div><span class="mzt" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></button></div><h3>Model 03</h3></article>
 </div>
 </section>
 
 <section id="drawing">
 <p class="sub">04</p><h2>Drawing<small class="jp">デッサン・クロッキー</small></h2>
-<p class="lead">人体や静物のデッサンから厳選した作品です。</p>
 <div class="draw"><button type="button" aria-label="拡大して見る 1"></button><button type="button" aria-label="拡大して見る 2"></button><button type="button" aria-label="拡大して見る 3"></button><button type="button" aria-label="拡大して見る 4"></button><button type="button" aria-label="拡大して見る 5"></button><button type="button" aria-label="拡大して見る 6"></button></div>
 </section>
 
 <section id="about">
 <p class="sub">05</p><h2>About<small class="jp">自己紹介</small></h2>
-<p class="lead">コンポジターを目指しています。ロトスコープ、マットペイント、リムーバルを中心に制作してきました。これまでに3Dアニメーション、ストップモーション、モデリング、デッサンも制作しています。（自己紹介を編集してください）</p>
+<p class="lead">ロトスコープ・マットペイント・リムーバルを中心に制作しているコンポジターです。</p>
 <div class="abg">
-<div><h3>Skills</h3><ul class="chips"><li>Rotoscoping</li><li>Keying</li><li>Matte Painting</li><li>Removal</li><li>3D Animation</li><li>Stop Motion</li><li>Modeling</li><li>Drawing</li></ul></div>
-<div class="sw"><h3>Software</h3>
+<div class="sw"><h3>Software<span class="abj">使用可能ソフト</span></h3>
 <ul class="tools">
 <li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg></span><span class="ttx"><b>Maya</b><span>モデリング、アニメーション、シーケンスレンダリング、プロジェクション、AOV出力</span></span></li>
 <li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M8.5 6h2a3 3 0 0 1 3 3v0a3 3 0 0 0 2 2.8M8.5 18h2a3 3 0 0 0 3-3v0a3 3 0 0 1 2-2.8"/></svg></span><span class="ttx"><b>Nuke</b><span>ロト、キーイング、リムーバル、カードプロジェクション合成</span></span></li>
-<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5 19.5 9.5 10 19H5v-5z"/><path d="M12.5 6.5l5 5"/></svg></span><span class="ttx"><b>Photoshop</b><span>レベル補正、リムーバル</span></span></li>
-<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg></span><span class="ttx"><b>Premiere Pro</b><span>映像編集</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5 19.5 9.5 10 19H5v-5z"/><path d="M12.5 6.5l5 5"/></svg></span><span class="ttx"><b>Photoshop</b><span>クリーンプレート作成、リムーバル（レタッチ）、レベル・色調補正</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg></span><span class="ttx"><b>Premiere Pro</b><span>ショーリール・作品映像の編集、カット編集、サウンドの配置・調整</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 3.5l3 3-9 9-3-3z"/><path d="M8.5 12.5c-2.2-.2-3.8 1.2-3.9 3.3-.1 1.6-.9 2.6-2.1 3.2 2.7 1.1 6.3.6 7.8-1.4.9-1.2.8-2.6.2-3.1"/></svg></span><span class="ttx"><b>CLIP STUDIO PAINT</b><span>イラスト・キャラクター制作、背景、絵コンテ</span></span></li>
+<li><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 C8 8, 16 16, 20 4"/><rect x="2.5" y="18.5" width="3" height="3" rx=".5"/><rect x="18.5" y="2.5" width="3" height="3" rx=".5"/><circle cx="12" cy="12" r="1.6"/></svg></span><span class="ttx"><b>Illustrator</b><span>ロゴデザイン、製本・印刷物のレイアウト</span></span></li>
 </ul></div>
-<div class="sw"><h3>Education</h3>
+<div class="sw"><h3>Education<span class="abj">学歴</span></h3>
 <ul class="edu">
-<li><span class="ey">2023</span><span>京都精華大学 アニメーション学科 卒業（学士）</span></li>
-<li><span class="ey">2023 – 2026.03</span><span>メガキャリアラボ「MAYAハードサーフェスモデリングアセット課程」修了</span></li>
+<li><span class="ey">2019.04 – 2023.03</span><span>京都精華大学 マンガ学部 アニメーション学科 卒業</span></li>
+<li><span class="ey">2025.05 – 2026.03</span><span>メガキャリアラボ「MAYAハードサーフェスモデリングアセット課程」修了</span></li>
 <li><span class="ey">2026.06 – 2026.12</span><span>メガキャリアラボ「日本OTT基盤CG映像（MAYA+NUKE）制作者研修課程」（K-Move）修了見込み</span></li>
 </ul></div>
-<div><h3>Awards</h3><p>ACジャパン広告学生賞 奨励賞（第○回）</p></div>
-<div><h3>Language</h3><p>2020年 日本語能力試験 JLPT N1 取得</p></div>
+<div><h3>Awards<span class="abj">受賞歴</span></h3><p>ACジャパン広告学生賞 奨励賞（第○回）</p></div>
+<div><h3>Language<span class="abj">語学</span></h3><p>2020年 日本語能力試験 JLPT N1 取得</p></div>
 </div>
 </section>
 
 <section id="resume">
 <p class="sub">06</p><h2>Resume<small class="jp">履歴書</small></h2>
-<p class="lead">履歴書と職務経歴書をPDFでご覧いただけます。</p>
 <a class="rcard" href="#" target="_blank" rel="noopener"><span><b>履歴書・職務経歴書（PDF）</b><small>クリックで新しいタブに開きます</small></span><i aria-hidden="true">→</i></a>
 </section>
 </main>
@@ -425,14 +501,25 @@ var atB=false;
 window.addEventListener('scroll',function(){var nb=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2;
 if(nb&&!atB){atB=true;Object.keys(links).forEach(function(k){links[k].classList.remove('on')});if(links.contact){links.contact.classList.add('on');centerNav(links.contact);}}
 else if(!nb&&atB){atB=false;if(links.contact)links.contact.classList.remove('on');}},{passive:true});
-var pbee=document.getElementById('pbee'),lastY=window.scrollY,flyT;
-function moveBee(r){if(!pbee)return;var w=pbee.parentNode.clientWidth;pbee.style.transform='translateX('+Math.max(16,Math.min(w-14,r*w))+'px)';
+var pflw=document.getElementById('pflw'),pbee=document.getElementById('pbee'),lastY=window.scrollY,flyT;
+function moveBee(r){if(!pbee)return;var w=pbee.parentNode.clientWidth;var X=Math.max(33,Math.min(w-38,r*w));pbee.style.transform='translateX('+X+'px)';if(pflw)pflw.classList.toggle('arr',r>0.985);
 var y=window.scrollY;if(Math.abs(y-lastY)>1){pbee.classList.toggle('back',y<lastY);pbee.classList.add('fly');clearTimeout(flyT);flyT=setTimeout(function(){pbee.classList.remove('fly')},260);}lastY=y;}
+(function(){var g=document.getElementById('pgrs'),fl=document.getElementById('pflw'),be=document.getElementById('pbee');
+function go(top){window.scrollTo({top:top,behavior:rm?'auto':'smooth'});}
+function bind(el,fn){if(!el)return;el.addEventListener('click',fn);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});}
+bind(g,function(){go(0);});bind(fl,function(){go(document.documentElement.scrollHeight);});
+if(!be)return;var dragging=false;
+function toR(x){var hr=be.parentNode.getBoundingClientRect();return Math.max(0,Math.min(1,(x-hr.left)/hr.width));}
+function seek(x){var h=document.documentElement.scrollHeight-innerHeight;window.scrollTo({top:toR(x)*h,behavior:'instant'});}
+be.addEventListener('pointerdown',function(e){dragging=true;be.setPointerCapture(e.pointerId);be.classList.add('drag','fly');e.preventDefault();});
+be.addEventListener('pointermove',function(e){if(dragging)seek(e.clientX);});
+function end(){if(!dragging)return;dragging=false;be.classList.remove('drag');setTimeout(function(){be.classList.remove('fly')},200);}
+be.addEventListener('pointerup',end);be.addEventListener('pointercancel',end);})();
 var prog=document.getElementById('prog'),reel=document.querySelector('.reel'),tk=false;
 function upd(){tk=false;var h=document.documentElement.scrollHeight-window.innerHeight,r=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;prog.style.transform='scaleX('+r+')';moveBee(r);
 if(!rm&&reel){var r=reel.getBoundingClientRect(),t=(window.innerHeight-r.top)/(window.innerHeight+r.height);reel.style.setProperty('--py',Math.max(0,Math.min(1,t))*100+'%');}}
 window.addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});window.addEventListener('resize',upd);upd();if(window.visualViewport)visualViewport.addEventListener('resize',upd);window.addEventListener('load',upd);
-var hm=document.getElementById('home');if(hm)hm.addEventListener('click',function(e){e.preventDefault();try{history.scrollRestoration='manual';}catch(_){}window.scrollTo(0,0);location.href=location.pathname+location.search;});
+var hm=document.getElementById('home');if(hm)hm.addEventListener('click',function(e){e.preventDefault();try{if(location.hash)history.replaceState(null,'',location.pathname+location.search);}catch(_){}window.scrollTo({top:0,left:0,behavior:'instant'});if(window.dlg&&dlg.open)dlg.close();document.querySelectorAll('.hero .sub,main h1 .ln,.top>.reel').forEach(function(el){el.style.animation='none';void el.offsetWidth;el.style.animation='';});window.dispatchEvent(new Event('scroll'));});
 document.querySelectorAll('[data-copy]').forEach(function(el){var tip=el.querySelector('.mc-tip'),t0=tip?tip.textContent:'',tm;
 el.addEventListener('click',function(e){e.preventDefault();var v=el.getAttribute('data-copy');
 function done(ok){if(!tip)return;tip.textContent=ok?'コピーしました！':v;el.classList.add('copied');clearTimeout(tm);tm=setTimeout(function(){el.classList.remove('copied');tip.textContent=t0;},1600);}
@@ -468,6 +555,26 @@ function arrowM(cls,txt,label,d){var a=document.createElement('button');a.type='
 views.forEach(function(v,k){var x=document.createElement('button');x.type='button';x.className='mtab';x.textContent=v[0];x.addEventListener('click',function(){show(k)});tabs.appendChild(x);});
 body.appendChild(t);body.appendChild(mv);body.appendChild(tabs);show(+b.getAttribute('data-v')||0);dlg.showModal();
 mv.tabIndex=-1;dlg.onkeydown=function(e){if(!body.contains(mv))return;if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1);};});});
+document.querySelectorAll('.bd').forEach(function(art){
+var tiles=[].slice.call(art.querySelectorAll('.bst'));
+var ttl=(art.querySelector('h3').firstChild||{}).textContent||'';
+tiles.forEach(function(tb,ti){tb.addEventListener('click',function(){
+var idx=ti;body.innerHTML='';
+var t=document.createElement('h3');t.textContent=ttl;t.style.margin='0 0 10px';
+var mv=document.createElement('div');mv.className='mv';
+var tabs=document.createElement('div');tabs.className='mtabs';
+function arrowB(cls,txt,label,d){var a=document.createElement('button');a.type='button';a.className='pn '+cls;a.textContent=txt;a.setAttribute('aria-label',label);a.addEventListener('click',function(){show(idx+d)});return a;}
+function show(i){idx=(i+tiles.length)%tiles.length;mv.innerHTML='';var b=tiles[idx],lab=b.querySelector('.bsl').textContent;
+if(b.hasAttribute('data-motion')){var vs=art.getAttribute('data-video');
+if(vs&&vs!=='pending'){var v=document.createElement('video');v.src=vs;v.autoplay=true;v.loop=true;v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');mv.appendChild(v);}
+else{var ph=document.createElement('div');ph.className='mph';ph.textContent='ここに3〜5秒のループ動画が入ります（準備中）';mv.appendChild(ph);}}
+else{var src=b.getAttribute('data-img');if(src){var im=document.createElement('img');im.src=src;im.alt=ttl+' '+lab;mv.appendChild(im);}
+else{var ph2=document.createElement('div');ph2.className='mph';ph2.textContent=lab+'（画像準備中）';mv.appendChild(ph2);}}
+if(tiles.length>1){mv.appendChild(arrowB('pv','\u2039','前へ',-1));mv.appendChild(arrowB('nx','\u203a','次へ',1));}
+[].forEach.call(tabs.children,function(x,k){x.setAttribute('aria-pressed',k===idx?'true':'false')});}
+tiles.forEach(function(x,k){var bt=document.createElement('button');bt.type='button';bt.className='mtab';bt.textContent=x.querySelector('.bsl').textContent;bt.addEventListener('click',function(){show(k)});tabs.appendChild(bt);});
+body.appendChild(t);body.appendChild(mv);body.appendChild(tabs);show(idx);dlg.showModal();
+dlg.onkeydown=function(e){if(!body.contains(mv))return;if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1);};});});});
 var tiles=[].slice.call(document.querySelectorAll('.draw button')),cur=0;
 function arrow(cls,txt,label,d){var a=document.createElement('button');a.type='button';a.className='pn '+cls;a.textContent=txt;a.setAttribute('aria-label',label);a.addEventListener('click',function(){showDraw(cur+d)});return a;}
 function showDraw(i){cur=(i+tiles.length)%tiles.length;body.innerHTML='';
