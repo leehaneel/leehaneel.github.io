@@ -447,6 +447,12 @@ html{background-color:var(--bg);background-image:linear-gradient(color-mix(in sr
 .big.dz.zm.on.grab{cursor:grabbing}
 .zhint{text-align:center;font-size:13px;color:var(--mute);margin-top:8px}
 </style>
+<script>
+(function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+function top(){var de=document.documentElement,b=de.style.scrollBehavior;de.style.scrollBehavior='auto';window.scrollTo(0,0);de.style.scrollBehavior=b;}
+if(location.hash){try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}}
+top();window.addEventListener('load',top);window.addEventListener('pageshow',function(e){if(e.persisted)top();});})();
+</script>
 </head>
 <body>
 <div id="glow" aria-hidden="true"></div>
