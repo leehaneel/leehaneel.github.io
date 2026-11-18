@@ -438,6 +438,14 @@ html body .mc .mc-name b{font-family:"Space Grotesk","Zen Kaku Gothic New",sans-
 html{background-color:var(--bg);background-image:linear-gradient(color-mix(in srgb,var(--fg) 5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--fg) 5%,transparent) 1px,transparent 1px),linear-gradient(color-mix(in srgb,var(--fg) 2.5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--fg) 2.5%,transparent) 1px,transparent 1px);background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-attachment:fixed}
 .big.yt{aspect-ratio:16/9;background:#000;width:min(100%,calc(78vh * 16 / 9));margin:0 auto}
 .big.yt iframe{width:100%;height:100%;border:0;display:block}
+.big.md{background:transparent!important}
+.mv2.w img{object-fit:contain;background:#fff}
+.big.dz.zm{overflow:hidden;cursor:zoom-in;position:relative}
+.big.dz.zm img{transition:transform .25s ease;transform-origin:50% 50%}
+.big.dz.zm.on{cursor:zoom-out}
+.big.dz.zm.on{cursor:grab;touch-action:none}
+.big.dz.zm.on.grab{cursor:grabbing}
+.zhint{text-align:center;font-size:13px;color:var(--mute);margin-top:8px}
 </style>
 </head>
 <body>
@@ -752,6 +760,25 @@ document.querySelectorAll('[data-yt]').forEach(function(a){a.addEventListener('c
 var t=(a.closest('.work')||a).querySelector('h3');body.innerHTML='';var h=document.createElement('h3');h.textContent=t?[].filter.call(t.childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join('').trim():'';h.style.margin='0 0 10px';
 var d=document.createElement('div');d.className='big yt';var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0&playsinline=1';f.title=h.textContent||'動画';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';d.appendChild(f);
 body.appendChild(h);body.appendChild(d);dlg.onkeydown=null;if(!dlg.open)dlg.showModal();});});})();
+</script>
+<script>
+(function(){
+var dlg=document.getElementById('dlg');if(!dlg)return;
+new MutationObserver(function(){var b=document.querySelector('#dlgb .big.dz');if(!b||b.classList.contains('zm'))return;var im=b.querySelector('img');if(!im)return;b.classList.add('zm');
+var h=document.createElement('p');h.className='zhint';h.textContent='クリックで拡大';b.after(h);
+var Z=1.8,on=false,tx=0,ty=0,drag=null,moved=false;
+function clamp(){var bw=b.clientWidth,bh=b.clientHeight,w=im.offsetWidth*Z,hh=im.offsetHeight*Z,ox=im.offsetLeft,oy=im.offsetTop;
+var minx=bw-ox-w,maxx=-ox,miny=bh-oy-hh,maxy=-oy;if(w<=bw){tx=(bw-w)/2-ox}else{tx=Math.min(maxx,Math.max(minx,tx))}if(hh<=bh){ty=(bh-hh)/2-oy}else{ty=Math.min(maxy,Math.max(miny,ty))}}
+function apply(){im.style.transform=on?'translate('+tx+'px,'+ty+'px) scale('+Z+')':'';}
+im.style.transformOrigin='0 0';im.draggable=false;
+function zoomAt(cx,cy){var r=im.getBoundingClientRect();var px=cx-r.left,py=cy-r.top;tx=px-px*Z;ty=py-py*Z;on=true;clamp();b.classList.add('on');h.textContent='ドラッグで移動・クリックで戻る';apply();}
+function reset(){on=false;tx=ty=0;b.classList.remove('on');h.textContent='クリックで拡大';apply();}
+b.addEventListener('pointerdown',function(e){if(e.target.closest('.pn'))return;moved=false;if(on){drag={x:e.clientX,y:e.clientY,tx:tx,ty:ty};b.setPointerCapture(e.pointerId);b.classList.add('grab');}else{drag={x:e.clientX,y:e.clientY,tx:0,ty:0,down:true};}});
+b.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;if(on&&!drag.down){tx=drag.tx+dx;ty=drag.ty+dy;clamp();im.style.transition='none';apply();}});
+b.addEventListener('pointerup',function(e){if(e.target.closest&&e.target.closest('.pn')){drag=null;return;}var wasDrag=moved;b.classList.remove('grab');im.style.transition='';if(drag&&!wasDrag){if(on)reset();else zoomAt(e.clientX,e.clientY);}drag=null;});
+b.addEventListener('pointercancel',function(){drag=null;b.classList.remove('grab');im.style.transition='';});
+}).observe(document.getElementById('dlgb'),{childList:true});
+})();
 </script>
 </body>
 </html>
