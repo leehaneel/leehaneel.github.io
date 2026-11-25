@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://leehaneel.github.io/thumbnail.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&family=Space+Grotesk:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Outfit:wght@500;600&family=Space+Grotesk:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
 :root{--dotc:79,107,99;--bg:#fdf8f6;--fg:#2a2230;--mute:#574e62;--line:#eadde2;--accent:#c2366c;--panel:#f6ebef;--ga:#ff7ab8;--gb:#5fd0ff;--gc:#ffc46b;--gm:26%;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -489,7 +489,21 @@ main .hero h1{margin-top:6px!important}
 .shd{display:flex;align-items:baseline;gap:12px;margin-bottom:10px!important}
 .shd .sub{margin:0!important}
 .shd h2{margin:0!important;font-size:clamp(18px,1.6vw,22px)!important}
-</style>
+h1.v,h1.v .ln,h1.v .ln::before{font-family:"Montserrat","Noto Sans JP",sans-serif!important;font-weight:600!important}h1.v{font-size:clamp(40px,5.4vw,72px)!important;line-height:1.02!important;letter-spacing:-.01em!important;max-width:none!important}h1.v .ln{display:block;width:max-content;position:relative;padding:.04em .25em .16em;margin:-.04em -.25em -.16em;-webkit-mask:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}h1.v .ln::before{content:attr(data-t);position:absolute;inset:0;padding:inherit;pointer-events:none;filter:blur(4px);opacity:.55;-webkit-mask:linear-gradient(90deg,#000,transparent 25%,transparent 75%,#000);mask:linear-gradient(90deg,#000,transparent 25%,transparent 75%,#000)}.big.md img{transition:filter .35s ease;object-fit:contain}.big.md img.lo{filter:blur(8px)}/* showreel popup (no rgb) */
+.reel::after{display:none!important}
+.reel .pbr{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:rgba(255,255,255,.94);z-index:3;transition:transform .3s ease}
+.reel .pbr::after{content:"";position:absolute;left:21px;top:16px;border-left:15px solid var(--fg);border-top:10px solid transparent;border-bottom:10px solid transparent}
+.reel:hover .pbr{transform:scale(1.08)}
+.big.rl{aspect-ratio:16/9;width:min(1000px,86vw);background:linear-gradient(135deg,#1d2f3a,#0c161d 60%,#3a2a38);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#dfe6e3}
+.big.rl b{font-family:Montserrat,sans-serif;font-size:22px;letter-spacing:.05em}
+.big.rl small{font-size:13px;opacity:.75}
+/* ===== RGB split: title only ===== */
+h1.v .ln::before,h1.v .ln::after{content:attr(data-t);position:absolute;inset:0;padding:inherit;pointer-events:none;filter:none!important;opacity:.7!important;mix-blend-mode:multiply;-webkit-mask:linear-gradient(90deg,#000,transparent 25%,transparent 75%,#000);mask:linear-gradient(90deg,#000,transparent 25%,transparent 75%,#000)}
+h1.v .ln::before{color:#ff2850;transform:translateX(-3px)}
+h1.v .ln::after{color:#1ebeff;transform:translateX(3px);font:inherit}
+@keyframes rgbt{0%{text-shadow:-2px 0 rgba(255,40,80,.75),2px 0 rgba(30,190,255,.75)}100%{text-shadow:0 0 transparent,0 0 transparent}}
+h1.v .ln.tg{animation:rgbt .6s ease-out 1}
+.big.rl,.big.yt{width:min(100%,calc(74vh * 16 / 9))!important;margin-left:auto!important;margin-right:auto!important;max-height:none!important}#dlgb:has(.big.rl,.big.yt)>h3{width:min(100%,calc(74vh * 16 / 9));margin-left:auto!important;margin-right:auto!important}/* readability bump */h2 small.jp{font-size:13px!important}.bsl,.badge,.mtg{font-size:13px!important}.mno{font-size:14px!important}.bdj{font-size:15px!important}p.tl{font-size:15px!important}.draw figcaption span{font-size:15px!important}.reel>span{font-size:15px!important}p.sub{font-size:15px!important}#about .sw h3,#about h3{font-size:15px!important}.abj{font-size:14px!important}.mc-role{font-size:12.5px!important}.mc-name>span:not(:first-child){font-size:14.5px!important}.mc-v{font-size:15px!important}.mc-tip{font-size:12px!important}.copy{font-size:13px!important}.totop{font-size:14px!important}/* cinema video popup */#dlg.cine{background:transparent!important;border:0!important;padding:0!important;width:min(1100px,94vw,calc((100vh - 160px) * 16 / 9))!important;overflow:visible}#dlg.cine::backdrop{background:rgba(10,12,12,.94)}#dlg.cine #dlgb{display:flex;flex-direction:column}#dlg.cine #dlgb>.big{order:0;width:100%!important;margin:0!important;box-shadow:0 30px 90px rgba(0,0,0,.6);border-radius:2px}#dlg.cine #dlgb>h3{order:1;width:100%!important;margin:16px 0 0!important;color:#eef2f0;font-family:"Montserrat","Zen Kaku Gothic New",sans-serif;font-weight:500;font-size:20px;letter-spacing:.02em}#dlg.cine #dlgb>h3 .cjp{font-family:"Zen Kaku Gothic New",sans-serif;font-size:14px;font-weight:500;color:#a9b3af;margin-left:10px;letter-spacing:0}#dlg.cine #dlgb>.cmeta{order:2;color:#a9b3af;font-size:14px;margin:6px 0 0}#dlg.cine #dlgx{position:fixed;top:18px;right:20px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;padding:0 0 3px;cursor:pointer;transition:background .2s}#dlg.cine #dlgx:hover{background:rgba(255,255,255,.2)}#dlg.cine #dlgx:focus-visible{outline:2px solid #fff;outline-offset:2px}.bst video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}.bst.vd:not(:last-child)::after{content:"";position:absolute;right:8px;top:8px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.88) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l8 5-8 5z' fill='%231e2321'/%3E%3C/svg%3E") center/14px no-repeat;box-shadow:0 1px 4px rgba(0,0,0,.25)}.bs7 .bsl{white-space:nowrap}@media(max-width:600px){.bs.bs7{grid-template-columns:repeat(2,1fr)}.bst.vd:not(:last-child)::after{width:18px;height:18px;background-size:12px;right:6px;top:6px}}</style>
 <script>
 (function(){try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
 function top(){var de=document.documentElement,b=de.style.scrollBehavior;de.style.scrollBehavior='auto';window.scrollTo(0,0);de.style.scrollBehavior=b;}
@@ -506,7 +520,7 @@ top();window.addEventListener('load',top);window.addEventListener('pageshow',fun
 </div></header>
 
 <main class="wrap">
-<div class="top"><div class="hero"><div class="hero-t"><h1><span class="ln">Compositing Portfolio</span></h1><p class="sub">LEE HAN · イ・ハン</p></div>
+<div class="top"><div class="hero"><div class="hero-t"><h1 class="v" aria-label="Compositing Portfolio"><span class="ln" data-t="Compositing">Compositing</span><span class="ln" data-t="Portfolio">Portfolio</span></h1><p class="sub">LEE HAN · イ・ハン</p></div>
 </div>
 
 <div class="shd" id="showreel"><p class="sub">00</p><h2>Compositing Showreel<small class="jp">ショーリール</small></h2></div>
@@ -517,7 +531,7 @@ top();window.addEventListener('load',top);window.addEventListener('pageshow',fun
 
 <div class="bds">
 <article class="bd"><h3>Rotoscoping<small class="bdj">ロトスコープ</small></h3><p class="meta"><span class="mi">使用ツール：Nuke</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Spline</span></button><button class="bst" type="button" data-img=""><span class="bsl">Alpha Matte</span></button><button class="bst" type="button" data-img=""><span class="bsl">Final</span></button></div></article>
-<article class="bd"><h3>Matte Painting 01<small class="bdj">マットペイント 01</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Higgsfield</span><span class="mi">制作期間：2ヶ月</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Layout</span></button><button class="bst" type="button" data-img=""><span class="bsl">Paint</span></button><button class="bst" type="button" data-img=""><span class="bsl">Comp</span></button></div></article>
+<article class="bd"><h3>Matte Painting 01<small class="bdj">マットペイント 01</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Higgsfield</span><span class="mi">制作期間：2ヶ月</span></p><div class="bs bs7"><button class="bst vd" type="button" data-vid="img/bd/mp1/01_plate.mp4" aria-label="Matte Painting 01 Plateを再生"><img src="img/bd/mp1/01_plate_s.jpg" alt="Matte Painting 01 Plate（背景素材とグリーンバック素材）" loading="lazy" decoding="async"><span class="bsl">Plate</span></button><button class="bst vd" type="button" data-vid="img/bd/mp1/02_matte.mp4" aria-label="Matte Painting 01 Alpha Matteを再生"><img src="img/bd/mp1/02_matte_s.jpg" alt="Matte Painting 01 Alpha Matte（キーイングで抽出したアルファマット）" loading="lazy" decoding="async"><span class="bsl">Alpha Matte</span></button><button class="bst vd" type="button" data-vid="img/bd/mp1/03_bggrade.mp4" aria-label="Matte Painting 01 BG Gradeを再生"><img src="img/bd/mp1/03_bggrade_s.jpg" alt="Matte Painting 01 BG Grade（背景グレーディング）" loading="lazy" decoding="async"><span class="bsl">BG Grade</span></button><button class="bst vd" type="button" data-vid="img/bd/mp1/04_chargrade.mp4" aria-label="Matte Painting 01 Char Gradeを再生"><img src="img/bd/mp1/04_chargrade_s.jpg" alt="Matte Painting 01 Char Grade（人物グレーディング）" loading="lazy" decoding="async"><span class="bsl">Char Grade</span></button><button class="bst vd" type="button" data-vid="img/bd/mp1/05_shadow.mp4" aria-label="Matte Painting 01 Shadow & Grainを再生"><img src="img/bd/mp1/05_shadow_s.jpg" alt="Matte Painting 01 Shadow & Grain（影・グレイン）" loading="lazy" decoding="async"><span class="bsl">Shadow & Grain</span></button><button class="bst vd" type="button" data-vid="img/bd/mp1/06_fog.mp4" aria-label="Matte Painting 01 Atmosphereを再生"><img src="img/bd/mp1/06_fog_s.jpg" alt="Matte Painting 01 Atmosphere（フォグ）" loading="lazy" decoding="async"><span class="bsl">Atmosphere</span></button><button class="bst vd" type="button" data-vid="img/bd/mp1/07_final.mp4" aria-label="Matte Painting 01 Finalを再生"><video src="img/bd/mp1/07_final.mp4" poster="img/bd/mp1/07_final_s.jpg" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video><span class="bsl">Final</span></button></div></article>
 <article class="bd"><h3>Matte Painting 02<small class="bdj">マットペイント 02</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Maya、Whik Studio</span><span class="mi">制作期間：1ヶ月</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Layout</span></button><button class="bst" type="button" data-img=""><span class="bsl">Paint</span></button><button class="bst" type="button" data-img=""><span class="bsl">Comp</span></button></div></article>
 <article class="bd"><h3>Removal<small class="bdj">リムーバル</small></h3><p class="meta"><span class="mi">使用ツール：Nuke、Photoshop</span><span class="mi">制作期間：1週間</span></p><div class="bs"><button class="bst" type="button" data-img=""><span class="bsl">Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Clean Plate</span></button><button class="bst" type="button" data-img=""><span class="bsl">Patch</span></button><button class="bst" type="button" data-img=""><span class="bsl">Final</span></button></div></article>
 </div>
@@ -738,10 +752,11 @@ var t=document.createElement('h3');t.textContent=ttl;t.style.margin='0 0 10px';
 var mv=document.createElement('div');mv.className='mv';
 var tabs=document.createElement('div');tabs.className='mtabs';
 function arrowB(cls,txt,label,d){var a=document.createElement('button');a.type='button';a.className='pn '+cls;a.textContent=txt;a.setAttribute('aria-label',label);a.addEventListener('click',function(){show(idx+d)});return a;}
-function show(i){idx=(i+tiles.length)%tiles.length;mv.innerHTML='';var b=tiles[idx],lab=b.querySelector('.bsl').textContent;
+function show(i){idx=(i+tiles.length)%tiles.length;var ov=mv.querySelector('video');var lt=ov?ov.currentTime:0;mv.innerHTML='';var b=tiles[idx],lab=b.querySelector('.bsl').textContent;
 if(b.hasAttribute('data-motion')){var vs=art.getAttribute('data-video');
 if(vs&&vs!=='pending'){var v=document.createElement('video');v.src=vs;v.autoplay=true;v.loop=true;v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');mv.appendChild(v);}
 else{var ph=document.createElement('div');ph.className='mph';ph.textContent='ここに3〜5秒のループ動画が入ります（準備中）';mv.appendChild(ph);}}
+else if(b.dataset.vid){var v2=document.createElement('video');v2.src=b.dataset.vid;v2.muted=true;v2.loop=true;v2.autoplay=true;v2.playsInline=true;v2.setAttribute('playsinline','');v2.controls=false;if(lt>0)v2.addEventListener('loadedmetadata',function(){try{v2.currentTime=lt%v2.duration}catch(_){}},{once:true});mv.appendChild(v2);}
 else{var src=b.getAttribute('data-img');if(src){var im=document.createElement('img');im.src=src;im.alt=ttl+' '+lab;mv.appendChild(im);}
 else{var ph2=document.createElement('div');ph2.className='mph';ph2.textContent=lab+'（画像準備中）';mv.appendChild(ph2);}}
 if(tiles.length>1){mv.appendChild(arrowB('pv','\u2039','前へ',-1));mv.appendChild(arrowB('nx','\u203a','次へ',1));}
@@ -790,7 +805,7 @@ var big=document.createElement('div');big.className='big md';var im=new Image();
 big.appendChild(arrow('pv','\u2039','前へ',-1));big.appendChild(arrow('nx','\u203a','次へ',1));
 var tabs=document.createElement('div');tabs.className='mtabs2';
 bs.forEach(function(x,k){var t=document.createElement('button');t.type='button';t.textContent=x.dataset.label;t.addEventListener('click',function(){show(k)});tabs.appendChild(t);});
-function show(i){cur=(i+bs.length)%bs.length;im.src=bs[cur].dataset.full;im.alt=bs[cur].querySelector('img').alt;[].forEach.call(tabs.children,function(t,k){t.setAttribute('aria-pressed',k===cur?'true':'false')});}
+function show(i){cur=(i+bs.length)%bs.length;var k0=cur,th=bs[cur].querySelector('img'),r=(th.naturalWidth&&th.naturalHeight)?th.naturalWidth/th.naturalHeight:4/3;im.style.aspectRatio=r;im.style.width='min(100%, calc(74vh * '+r+'))';im.style.height='auto';im.src=th.currentSrc||th.src;im.classList.add('lo');im.alt=th.alt;var f=new Image();f.onload=function(){if(cur!==k0)return;im.src=f.src;im.classList.remove('lo');};f.src=bs[cur].dataset.full;[].forEach.call(tabs.children,function(t,k){t.setAttribute('aria-pressed',k===cur?'true':'false')});}
 body.innerHTML='';body.appendChild(h);body.appendChild(big);body.appendChild(tabs);show(i0);if(!dlg.open)dlg.showModal();
 dlg.onkeydown=function(e){if(!body.contains(big))return;if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);};});});});
 })();
@@ -826,7 +841,8 @@ b.addEventListener('pointercancel',function(){drag=null;b.classList.remove('grab
 })();
 </script>
 <script>
-(function(){var b=document.querySelector('.mc .bye');if(!b)return;var sv=b.querySelector('svg'),pg=document.getElementById('bpull'),t=0,drag=false,sx=0,sy=0,x=0,y=0,vx=0,vy=0,raf=0,lt=0,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){var b=document.querySelector('.mc .bye');if(!b)return;var sv=b.querySelector('svg'),pg=document.getElementById('bpull'),t=0,drag=false,sx=0,sy=0,x=0,y=0,vx=0,vy=0,raf=0,lt=0,RM=matchMedia('(prefers-reduced-motion: reduce)').matches,cur=[0,1,1],cried=false;
+function eye(){var a=cur[0]*Math.PI/180,px=117,py=121,qx=100+cur[1]*(px-100),qy=186+cur[2]*(py-186),dx=qx-100,dy=qy-186;return [100+dx*Math.cos(a)-dy*Math.sin(a),186+dx*Math.sin(a)+dy*Math.cos(a)];}function cry(){cried=true;var NS='http://www.w3.org/2000/svg',g=document.createElementNS(NS,'g'),d=document.createElementNS(NS,'path'),h=document.createElementNS(NS,'ellipse');d.setAttribute('d','M0 -7C2.6 -2.6 5 0.6 5 3.4A5 5 0 0 1 -5 3.4C-5 0.6 -2.6 -2.6 0 -7Z');d.setAttribute('fill','#8fd0f5');d.setAttribute('stroke','#5aa9d6');d.setAttribute('stroke-width','.8');h.setAttribute('cx','-1.8');h.setAttribute('cy','2.4');h.setAttribute('rx','1.2');h.setAttribute('ry','1.8');h.setAttribute('fill','#fff');h.setAttribute('opacity','.85');g.appendChild(d);g.appendChild(h);sv.appendChild(g);var t0=0,tr=0;function f(now){if(!t0)t0=now;var s=Math.min(1,(now-t0)/280),o=1;if(!drag){if(!tr)tr=now;o=1-Math.min(1,(now-tr)/260);}var E=eye();g.setAttribute('transform','translate('+E[0].toFixed(1)+' '+(E[1]+4*s).toFixed(1)+') rotate('+cur[0].toFixed(1)+') scale('+(0.2+0.9*s).toFixed(2)+')');g.setAttribute('opacity',o.toFixed(2));if(o>0)requestAnimationFrame(f);else g.remove();}requestAnimationFrame(f);}
 function go(e){if(drag||raf||Date.now()-t<450)return;t=Date.now();var r=b.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,ux=cx-e.clientX,uy=cy-e.clientY,L=Math.hypot(ux,uy)||1,dx=ux/L,dy=uy/L;
 b.style.setProperty('--dx',dx.toFixed(3));b.style.setProperty('--dy',dy.toFixed(3));b.style.setProperty('--ax',Math.abs(dx).toFixed(3));b.style.setProperty('--ay',Math.abs(dy).toFixed(3));
 b.classList.remove('flinch');void b.offsetWidth;b.classList.add('flinch');}
@@ -834,16 +850,44 @@ b.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'&&!e.but
 b.addEventListener('animationend',function(){b.classList.remove('flinch');});
 function draw(){if(Math.abs(x)<0.01&&Math.abs(y)<0.01){pg.removeAttribute('transform');return;}
 var H=b.offsetHeight||80,ang=Math.atan(x*0.6/H)*180/Math.PI;ang=Math.max(-30,Math.min(30,ang));
-var dd=Math.hypot(x,y),sy=1+Math.max(-y*0.9,dd*0.55)/220;if(y>0&&Math.abs(x)<y)sy=1-y/420;sy=Math.max(.8,Math.min(1.75,sy));var sx=Math.pow(sy,-0.5);
+var dd=Math.hypot(x,y),sy=1+Math.max(-y*0.9,dd*0.55)/220;if(y>0&&Math.abs(x)<y)sy=1-y/420;sy=Math.max(.8,Math.min(1.75,sy));var sx=Math.pow(sy,-0.5);cur=[ang,sx,sy];
 pg.setAttribute('transform','rotate('+ang.toFixed(2)+' 100 186) translate(100 186) scale('+sx.toFixed(3)+' '+sy.toFixed(3)+') translate(-100 -186)');}
 function damp(v){var d=Math.hypot(v[0],v[1]),m=200;if(d<=m)return v;var k=m+(d-m)*0.25;return [v[0]/d*k,v[1]/d*k];}
-b.addEventListener('pointerdown',function(e){if(RM)return go(e);e.preventDefault();drag=true;b.classList.remove('flinch');cancelAnimationFrame(raf);raf=0;sx=e.clientX-x;sy=e.clientY-y;vx=vy=0;b.setPointerCapture(e.pointerId);b.classList.add('pull');});
-b.addEventListener('pointermove',function(e){if(!drag)return;var v=damp([e.clientX-sx,e.clientY-sy]);x=v[0];y=v[1];draw();});
+b.addEventListener('pointerdown',function(e){if(RM)return go(e);e.preventDefault();drag=true;b.classList.remove('flinch');cancelAnimationFrame(raf);raf=0;sx=e.clientX-x;sy=e.clientY-y;vx=vy=0;cried=false;b.setPointerCapture(e.pointerId);b.classList.add('pull');});
+b.addEventListener('pointermove',function(e){if(!drag)return;var v=damp([e.clientX-sx,e.clientY-sy]);x=v[0];y=v[1];draw();if(!cried&&cur[2]>1.3)cry();});
 function rel(){if(!drag)return;drag=false;b.classList.remove('pull');lt=0;raf=requestAnimationFrame(spring);}
 b.addEventListener('pointerup',rel);b.addEventListener('pointercancel',rel);
 function spring(now){var dt=Math.min(.033,lt?(now-lt)/1000:.016);lt=now;var k=260,c=9;vx+=(-k*x-c*vx)*dt;vy+=(-k*y-c*vy)*dt;x+=vx*dt;y+=vy*dt;draw();
 if(Math.hypot(x,y)<.15&&Math.hypot(vx,vy)<2){x=y=vx=vy=0;draw();raf=0;return;}raf=requestAnimationFrame(spring);}
 })();
 </script>
-</body>
+<script>
+(function(){var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var dlg=document.getElementById('dlg'),body=document.getElementById('dlgb'),r=document.querySelector('.reel');
+if(r&&dlg&&body){var b=document.createElement('i');b.className='pbr';r.appendChild(b);r.removeAttribute('target');
+r.addEventListener('click',function(e){e.preventDefault();body.innerHTML='';var h=document.createElement('h3');h.textContent='Compositing Showreel';h.style.margin='0 0 10px';var d=document.createElement('div');d.className='big rl';d.innerHTML='<b>SHOWREEL</b><small>ショーリール公開準備中</small>';body.appendChild(h);body.appendChild(d);dlg.onkeydown=null;if(!dlg.open)dlg.showModal();});}
+})();
+</script><script>
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var dlg=document.getElementById('dlg'),body=document.getElementById('dlgb');if(!dlg||!body)return;
+new MutationObserver(function(){if(dlg.open&&body.querySelector('.big.yt,.big.rl')){dlg.animate([{opacity:0,transform:'scale(.96)'},{opacity:1,transform:'none'}],{duration:320,easing:'ease-out'});}}).observe(dlg,{attributes:true,attributeFilter:['open']});})();
+</script><script>
+(function(){var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;var t=document.querySelector('h1.v');if(t&&!rm)setTimeout(function(){t.querySelectorAll('.ln').forEach(function(l,i){setTimeout(function(){l.classList.add('tg');setTimeout(function(){l.classList.remove('tg')},650)},i*120)})},700);})();
+</script><script>
+(function(){var dlg=document.getElementById('dlg'),body=document.getElementById('dlgb');if(!dlg||!body)return;var last=null;
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-yt],.reel');if(t)last=t;},true);
+function ap(){
+ if(dlg.open&&body.querySelector('.big.yt,.big.rl')){if(dlg.classList.contains('cine')&&body.querySelector('.cmeta,.cjp'))return;dlg.classList.add('cine');
+  var h=body.querySelector('h3'),jp='',meta='';
+  if(last&&last.classList.contains('reel')){jp='ショーリール';var c=last.querySelector('span');meta=c&&c.textContent.indexOf('·')>-1?c.textContent.split('·').pop().trim():'';}
+  else if(last){var card=last.closest('.work');if(card){var s=card.querySelector('h3 .bdj');jp=s?s.textContent:'';var tl=card.querySelector('.tl');meta=tl?tl.textContent:'';}}
+  if(h&&jp&&!h.querySelector('.cjp')){var sp=document.createElement('span');sp.className='cjp';sp.textContent=jp;h.appendChild(sp);}
+  if(meta&&!body.querySelector('.cmeta')){var p=document.createElement('p');p.className='cmeta';p.textContent=meta;body.appendChild(p);}
+ } else if(!dlg.open||!body.querySelector('.big.yt,.big.rl')){dlg.classList.remove('cine');}
+}
+new MutationObserver(ap).observe(dlg,{attributes:true,attributeFilter:['open']});new MutationObserver(ap).observe(body,{childList:true});
+})();
+</script><script>
+(function(){var v=document.querySelector('.bs7 .bst:last-child video');if(!v)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();return;}
+if('IntersectionObserver'in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else v.pause();});},{threshold:.25}).observe(v);}})();
+</script></body>
 </html>
